@@ -5,6 +5,7 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  SafeAreaView,
   Dimensions,
 } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -81,7 +82,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <ScrollView style={styles.content}>
+      <SafeAreaView style={styles.content}>
         {mode !== Mode.List ? (
           <FlatGrid
             itemDimension={itemDimension()}
@@ -97,7 +98,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           />
         ) : (
           <FlatList
-            style={{ flex: 1, margin: 10 }}
+            style={{ flex: 1, margin: 10, marginRight: 0 }}
             data={clubs}
             renderItem={({ item }) => (
               <ClubList item={item} navigation={navigation} />
@@ -105,7 +106,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
             keyExtractor={(item) => item.id.toString()}
           />
         )}
-      </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };
