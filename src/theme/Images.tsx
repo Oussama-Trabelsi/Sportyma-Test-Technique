@@ -20,4 +20,5 @@ export default {
   Wolverhampton_Wanderers: require('src/assets/Images/Wolverhampton_Wanderers.png'),
   Norwich_City: require('src/assets/Images/Norwich_City.png'),
   Leeds_United: require('src/assets/Images/Leeds_United.png'),
+  Premier_League: require('src/assets/Images/Premier_League.jpg'),
 };
