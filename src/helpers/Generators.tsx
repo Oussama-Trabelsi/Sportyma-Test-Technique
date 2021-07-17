@@ -24,11 +24,17 @@ const createPlayer = (
   return player;
 };
 
-const createClub = (id: number, name: string, league: League): Club => {
+const createClub = (
+  id: number,
+  name: string,
+  league: League,
+  stadium: string,
+): Club => {
   let club: Club = {
     id,
     name,
     league,
+    stadium
   };
   return club;
 };

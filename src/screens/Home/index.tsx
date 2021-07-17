@@ -36,7 +36,7 @@ enum Mode {
 const Home: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
   const clubs = useSelector((state: any) => state.clubReducer.clubs);
-  const [mode, setMode] = useState<Mode>(Mode.Grid);
+  const [mode, setMode] = useState<Mode>(Mode.List);
   const [wasLarge, setWasLarge] = useState<boolean>(true);
   const [league, setLeague] = useState<League>(League.PremierLeague);
 
@@ -69,15 +69,15 @@ const Home: React.FC<Props> = ({ navigation }) => {
           <FontAwesome
             name="list-ul"
             size={24}
-            color={mode === Mode.List ? Colors.black : Colors.white}
+            color={mode === Mode.List ? Colors.black : Colors.primary}
             style={{ marginRight: 10 }}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => toggleGrid()}>
           <MaterialCommunityIcons
             name={!wasLarge ? 'grid-large' : 'grid'}
-            size={24}
-            color={mode !== Mode.List ? Colors.black : Colors.white}
+            size={25}
+            color={mode !== Mode.List ? Colors.black : Colors.primary}
           />
         </TouchableOpacity>
       </View>
@@ -97,7 +97,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           />
         ) : (
           <FlatList
-            style={{ flex: 1, margin: 20 }}
+            style={{ flex: 1, margin: 10 }}
             data={clubs}
             renderItem={({ item }) => <ClubList item={item} />}
             keyExtractor={(item) => item.id.toString()}

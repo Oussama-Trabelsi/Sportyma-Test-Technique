@@ -1,5 +1,7 @@
 export default {
   logo: require('src/assets/Images/logo.jpg'),
+  Premier_League: require('src/assets/Images/Premier_League.jpg'),
+  /* Club logo */
   Arsenal: require('src/assets/Images/Arsenal.png'),
   Manchester_United: require('src/assets/Images/Manchester_United.png'),
   Newcastle_United: require('src/assets/Images/Newcastle_United.png'),
@@ -20,5 +22,12 @@ export default {
   Wolverhampton_Wanderers: require('src/assets/Images/Wolverhampton_Wanderers.png'),
   Norwich_City: require('src/assets/Images/Norwich_City.png'),
   Leeds_United: require('src/assets/Images/Leeds_United.png'),
-  Premier_League: require('src/assets/Images/Premier_League.jpg'),
+  /* Stadium background */
+  Amex_Stadium: require('src/assets/Images/Amex_Stadium.jpg'),
+  Brentford_Community_Stadium: require('src/assets/Images/Brentford_Community_Stadium.jpg'),
+  Emirates_Stadium: require('src/assets/Images/Emirates_Stadium.jpg'),
+  Selhurst_Park: require('src/assets/Images/Selhurst_Park.jpg'),
+  Stamford_Bridge: require('src/assets/Images/Stamford_Bridge.jpg'),
+  Turf_Moor: require('src/assets/Images/Turf_Moor.jpg'),
+  Villa_Park: require('src/assets/Images/Villa_Park.jpg'),
 };

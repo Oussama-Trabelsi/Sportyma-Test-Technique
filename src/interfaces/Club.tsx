@@ -6,6 +6,7 @@ interface Club {
   id: number;
   name: string;
   league: League;
+  stadium: string;
 }
 
 export { Club, League };

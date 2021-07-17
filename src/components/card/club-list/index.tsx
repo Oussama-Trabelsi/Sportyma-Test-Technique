@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, ImageBackground } from 'react-native';
 // Types
 import { Club } from 'src/interfaces/Club';
 // Theme
@@ -12,13 +12,21 @@ interface Props {
 
 const ClubList: React.FC<Props> = ({ item }) => {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={Images[item.name.replace(/\s+/g, '_')]}
-      />
-      <Text style={{ textAlign: 'center', marginTop: 10 }}>{item.name}</Text>
-    </View>
+    <ImageBackground
+      imageStyle={{ borderRadius: 16 }}
+      style={styles.container}
+      source={Images[item.stadium.replace(/\s+/g, '_')]}>
+      <View style={styles.row}>
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={Images[item.name.replace(/\s+/g, '_')]}
+          />
+        </View>
+        <Text style={styles.boldText}>{item.name}</Text>
+      </View>
+      <Text style={styles.mediumText}>{item.stadium}</Text>
+    </ImageBackground>
   );
 };
 
