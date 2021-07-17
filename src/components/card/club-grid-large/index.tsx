@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Image, Text, ImageBackground } from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 // Types
 import { Club } from 'src/interfaces/Club';
 // Theme
@@ -9,15 +16,16 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 interface Props {
   item: Club;
+  navigation: StackNavigationProp<any, 'Home'>;
 }
 
-const GridLarge: React.FC<Props> = ({ item }) => {
+const GridLarge: React.FC<Props> = ({ item, navigation }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate('Club', { club: item })}>
       <View
         style={{
-          borderTopLeftRadius: 16,
-          borderTopRightRadius: 16,
           flex: 0.5,
         }}>
         <ImageBackground
@@ -43,7 +51,7 @@ const GridLarge: React.FC<Props> = ({ item }) => {
           <Text style={styles.mediumText}>{item.stadium}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

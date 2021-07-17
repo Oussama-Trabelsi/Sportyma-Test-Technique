@@ -13,15 +13,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // Theme
 import styles from './style';
 import { Colors, Images } from 'src/theme';
+import { Club } from 'src/interfaces/Club';
 
 interface Props {
+  club: Club;
   navigation: StackNavigationProp<any, 'Club'>;
-  route: RouteProp<any, 'Club'>;
 }
 
-const ClubHeader: React.FC<Props> = ({ navigation, route }) => {
+const ClubHeader: React.FC<Props> = ({ club, navigation }) => {
   const windowHeight = Dimensions.get('window').height;
-  const club = route.params?.club;
 
   return (
     <View style={styles.header}>
@@ -32,7 +32,7 @@ const ClubHeader: React.FC<Props> = ({ navigation, route }) => {
           style={{
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
             padding: 20,
-            height: windowHeight / 3,
+            height: windowHeight / 4,
           }}>
           <TouchableOpacity
             onPress={() => {

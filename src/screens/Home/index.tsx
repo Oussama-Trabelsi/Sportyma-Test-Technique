@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
   View,
-  ScrollView,
   Image,
   FlatList,
   TouchableOpacity,
@@ -92,7 +91,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
               mode === Mode.Grid ? (
                 <Grid item={item} navigation={navigation} />
               ) : (
-                <GridLarge item={item} />
+                <GridLarge item={item} navigation={navigation} />
               )
             }
           />

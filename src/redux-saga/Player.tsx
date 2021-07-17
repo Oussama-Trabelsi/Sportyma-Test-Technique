@@ -6,6 +6,5 @@ import { Player } from 'src/interfaces/Player';
 /* generates the player dataset */
 export function* loadPlayers() {
   const players: Array<Player> = yield call(playerFactory.generatePlayers);
-  console.log(players);
-  //yield put(PlayerActions.setData(players));
+  yield put(PlayerActions.setData(players));
 }

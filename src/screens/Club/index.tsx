@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Animated, Text } from 'react-native';
+import {
+  View,
+  Image,
+  Animated,
+  Text,
+  SafeAreaView,
+  Dimensions,
+} from 'react-native';
+import { FlatGrid } from 'react-native-super-grid';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
+import ClubHeader from 'src/components/header/club';
+import PlayerGrid from 'src/components/card/player-grid-large';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
@@ -17,15 +27,25 @@ interface Props {
 
 const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
   const club: Club = route.params?.club;
+  const players = useSelector((state: any) => state.playerReducer.data);
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
 
-  useEffect(() => {
-    console.log(club);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <View style={styles.container}>
-      <Text>club details</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ClubHeader club={club} navigation={navigation} />
+      <FlatGrid
+        style={{ flex: 1 }}
+        itemDimension={(windowWidth - 60) / 2}
+        spacing={20}
+        data={players}
+        renderItem={({ item }) => (
+          <PlayerGrid item={item} navigation={navigation} />
+        )}
+      />
+    </SafeAreaView>
   );
 };
 export default ClubDetails;

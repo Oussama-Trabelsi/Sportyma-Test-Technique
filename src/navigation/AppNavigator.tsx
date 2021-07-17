@@ -11,7 +11,11 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Root">
+      <Stack.Navigator
+        initialRouteName="Root"
+        screenOptions={{
+          headerShown: true,
+        }}>
         <Stack.Screen
           name="Root"
           component={Root}
@@ -25,10 +29,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="Club"
           component={ClubDetails}
-          options={({ navigation, route }) => ({
-            title: '',
-            headerLeft: () => <ClubHeader navigation={navigation} route={route} />, 
-          })}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

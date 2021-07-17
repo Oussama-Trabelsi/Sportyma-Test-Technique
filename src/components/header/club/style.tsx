@@ -6,16 +6,15 @@ const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   header: {
-    flex: 1,
+    height: windowHeight / 4,
   },
   background: {
     flex: 1,
     width: windowWidth,
-    height: windowHeight / 3,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   button: {
     width: 40,
     height: 40,
-  }
+  },
 });
