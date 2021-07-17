@@ -22,7 +22,7 @@ const Grid: React.FC<Props> = ({ item, navigation }) => {
           style={styles.logo}
           source={Images[item.name.replace(/\s+/g, '_')]}
         />
-        <Text style={{ textAlign: 'center', marginTop: 10 }}>{item.name}</Text>
+        <Text style={styles.boldText}>{item.name}</Text>
       </View>
     </TouchableOpacity>
   );

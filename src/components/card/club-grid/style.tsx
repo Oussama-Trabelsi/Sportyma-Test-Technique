@@ -13,4 +13,11 @@ export default StyleSheet.create({
     height: (windowWidth - 80) / 3,
     resizeMode: 'contain',
   },
+  boldText: {
+    color: Colors.black,
+    textAlign: 'center',
+    marginTop: 10,
+    fontSize: 20,
+    fontFamily: 'BlankenyScript',
+  },
 });

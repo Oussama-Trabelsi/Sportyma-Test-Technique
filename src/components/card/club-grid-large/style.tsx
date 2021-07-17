@@ -1,13 +1,11 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { Colors } from 'src/theme';
 
-const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.black,
     height: (windowHeight - 50) / 3,
     borderColor: Colors.black,
     borderWidth: 1,
