@@ -85,7 +85,7 @@ const generateClubs = async (): Promise<Array<Club>> => {
     14,
     'Newcastle United',
     League.PremierLeague,
-    "St. James' Park",
+    "St James Park",
   );
   let norwichCity: Club = createClub(
     15,
@@ -97,7 +97,7 @@ const generateClubs = async (): Promise<Array<Club>> => {
     15,
     'Southampton',
     League.PremierLeague,
-    "St. Mary's Stadium",
+    "St Marys Stadium",
   );
   let tottenhamHotspur: Club = createClub(
     16,

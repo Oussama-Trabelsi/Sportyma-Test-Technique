@@ -27,6 +27,7 @@ export default StyleSheet.create({
     borderColor: Colors.white,
     alignItems: 'center',
     paddingHorizontal: 10,
+    marginBottom: -10,
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },
