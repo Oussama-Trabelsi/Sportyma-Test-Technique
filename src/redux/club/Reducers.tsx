@@ -8,6 +8,14 @@ export const clubsLoading = (state: IInitialState) => ({
   loading: true,
 });
 
+export const setData = (
+  state: IInitialState,
+  { clubs }: { clubs: Array<Club> },
+) => ({
+  ...state,
+  data: clubs,
+});
+
 export const setClubs = (
   state: IInitialState,
   { clubs }: { clubs: Array<Club> },
@@ -19,5 +27,6 @@ export const setClubs = (
 
 export const reducer = createReducer(INITIAL_STATE, {
   [ClubTypes.CLUBS_LOADING]: clubsLoading,
+  [ClubTypes.SET_DATA]: setData,
   [ClubTypes.SET_CLUBS]: setClubs,
 });

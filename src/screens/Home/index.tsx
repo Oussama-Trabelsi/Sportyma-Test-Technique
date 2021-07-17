@@ -18,6 +18,7 @@ import ClubList from 'src/components/card/club-list';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
+import { League } from 'src/interfaces/Club';
 // Theme
 import styles from './style';
 import { Colors } from 'src/theme';
@@ -31,9 +32,11 @@ enum Mode {
 
 const Home: React.FC<Props> = ({}) => {
   const dispatch = useDispatch();
+  const data = useSelector((state: any) => state.clubReducer.data);
   const clubs = useSelector((state: any) => state.clubReducer.clubs);
-  const [mode, setMode] = useState<Mode>(Mode.Grid);
+  const [mode, setMode] = useState<Mode>(Mode.List);
   const [wasLarge, setWasLarge] = useState<boolean>(true);
+  const [league, setLeague] = useState<League>(League.PremierLeague);
 
   const windowWidth = Dimensions.get('window').width;
 
@@ -49,8 +52,8 @@ const Home: React.FC<Props> = ({}) => {
   };
 
   useEffect(() => {
-    console.log(mode);
-  }, [mode]);
+    dispatch(ClubActions.getClubs({ data: data, league: league }));
+  }, []);
 
   return (
     <View style={styles.container}>
