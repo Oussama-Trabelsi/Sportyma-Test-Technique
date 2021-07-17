@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, TouchableOpacity, Image, Text } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 // Types
 import { Club } from 'src/interfaces/Club';
 // Theme
@@ -8,11 +9,14 @@ import { Images } from 'src/theme';
 
 interface Props {
   item: Club;
+  navigation: StackNavigationProp<any, 'Home'>;
 }
 
-const Grid: React.FC<Props> = ({ item }) => {
+const Grid: React.FC<Props> = ({ item, navigation }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate('Club', { club: item })}>
       <View style={{ justifyContent: 'center', alignItems: 'center' }}>
         <Image
           style={styles.logo}
@@ -20,7 +24,7 @@ const Grid: React.FC<Props> = ({ item }) => {
         />
         <Text style={{ textAlign: 'center', marginTop: 10 }}>{item.name}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

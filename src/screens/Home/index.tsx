@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { FlatGrid } from 'react-native-super-grid';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -23,18 +24,19 @@ import { League } from 'src/interfaces/Club';
 import styles from './style';
 import { Colors } from 'src/theme';
 
-interface Props {}
+interface Props {
+  navigation: StackNavigationProp<any, 'Home'>;
+}
 enum Mode {
   List = 'list',
   Grid = 'grid',
   GridLarge = 'grid-large',
 }
 
-const Home: React.FC<Props> = ({}) => {
+const Home: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
-  const data = useSelector((state: any) => state.clubReducer.data);
   const clubs = useSelector((state: any) => state.clubReducer.clubs);
-  const [mode, setMode] = useState<Mode>(Mode.List);
+  const [mode, setMode] = useState<Mode>(Mode.Grid);
   const [wasLarge, setWasLarge] = useState<boolean>(true);
   const [league, setLeague] = useState<League>(League.PremierLeague);
 
@@ -52,7 +54,7 @@ const Home: React.FC<Props> = ({}) => {
   };
 
   useEffect(() => {
-    dispatch(ClubActions.getClubs({ data: data, league: league }));
+    dispatch(ClubActions.getClubs({ league: league }));
   }, []);
 
   return (
@@ -87,7 +89,7 @@ const Home: React.FC<Props> = ({}) => {
             data={clubs}
             renderItem={({ item }) =>
               mode === Mode.Grid ? (
-                <Grid item={item} />
+                <Grid item={item} navigation={navigation} />
               ) : (
                 <GridLarge item={item} />
               )

@@ -11,7 +11,8 @@ export function* loadClubs() {
 
 /* filters clubs with league */
 export function* getClubs(action: any): any {
-  const { league, data } = action.payload;
+  const { league } = action.payload;
+  const data: Array<Club> = yield call(clubFactory.generateClubs);
   const clubs = data.filter((club: Club) => club.league === league);
   yield put(ClubActions.setClubs(clubs));
 }
