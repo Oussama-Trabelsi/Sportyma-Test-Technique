@@ -8,7 +8,7 @@ import { reducer as ClubReducer } from './club/Reducers';
 
 export default () => {
   const appReducer = combineReducers({
-    ClubReducer: ClubReducer,
+    clubReducer: ClubReducer,
   });
 
   const rootReducer = (state: any, action: any) => {

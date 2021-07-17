@@ -1,13 +1,13 @@
 import { put, call } from 'redux-saga/effects';
 import ClubActions from 'src/redux/club/Actions';
+import { clubFactory } from 'src/helpers/factory/Club';
+import { Club } from 'src/interfaces/Club';
 
-export function* getClubs(action: any): any {
-  console.log("i am at saga already");
-  yield put(ClubActions.clubsLoading());
-  /*const response = yield call(planningService.fetchPlanning, action.apiToken);
-  if (response.data) {
-    yield put(PlanningActions.planningFetchSuccess(response.data));
-  } else yield put(PlanningActions.planningFetchFailure(response));*/
+/* generates the club dataset */
+export function* loadClubs() {
+  const clubs: Array<Club> = yield call(clubFactory.generateClubs);
+  yield put(ClubActions.setClubs(clubs));
 }
 
-
+/* generates clubs per league */
+export function* getClubs(action: any): any {}

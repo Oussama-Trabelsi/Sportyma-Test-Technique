@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Animated } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+import ClubActions from 'src/redux/club/Actions';
 // Theme
 import styles from './style';
 import { Images } from 'src/theme';
 
 interface Props {
-  navigation: any;
+  navigation: StackNavigationProp<any, 'Root'>;
 }
 
 const Root: React.FC<Props> = (props) => {
+  const dispatch = useDispatch();
+
+  const buildData = () => {
+    dispatch(ClubActions.loadClubs());
+  }
+
   const [LogoAnime] = useState<Animated.Value>(new Animated.Value(0));
 
   useEffect(() => {
@@ -21,6 +31,7 @@ const Root: React.FC<Props> = (props) => {
       }),
     ]).start(() => {
       // todo : navigate after data loading instead of timeout
+      buildData();
       setTimeout(() => props.navigation.navigate('Home'), 1500);
     });
   }, []);
