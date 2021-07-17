@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Animated, Text } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
+import { Club } from 'src/interfaces/Club';
 // Theme
 import styles from './style';
 import { Images } from 'src/theme';
 
 interface Props {
   navigation: StackNavigationProp<any, 'Club'>;
+  route: RouteProp<any, 'Club'>;
 }
 
-const Club: React.FC<Props> = (props) => {
-  const dispatch = useDispatch();
+const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
+  const club: Club = route.params?.club;
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(club);
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -23,4 +28,4 @@ const Club: React.FC<Props> = (props) => {
     </View>
   );
 };
-export default Club;
+export default ClubDetails;

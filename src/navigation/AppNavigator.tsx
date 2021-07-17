@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Root from 'src/screens/Root';
 import Home from 'src/screens/Home';
-import Club from 'src/screens/Club';
+import ClubDetails from 'src/screens/Club';
 import ClubHeader from 'src/components/header/club';
 
 const Stack = createStackNavigator();
@@ -24,7 +24,7 @@ const AppNavigator = () => {
         />
         <Stack.Screen
           name="Club"
-          component={Club}
+          component={ClubDetails}
           options={({ navigation, route }) => ({
             title: '',
             headerLeft: () => <ClubHeader navigation={navigation} route={route} />, 

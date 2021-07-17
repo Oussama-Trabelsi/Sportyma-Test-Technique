@@ -59,7 +59,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header />
+      <Header league={league} />
       {/* View control : List - Grid - Large grid */}
       <View style={styles.bar}>
         <TouchableOpacity
@@ -69,7 +69,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           <FontAwesome
             name="list-ul"
             size={24}
-            color={mode === Mode.List ? Colors.black : Colors.primary}
+            color={mode === Mode.List ? Colors.black : Colors.grey}
             style={{ marginRight: 10 }}
           />
         </TouchableOpacity>
@@ -77,7 +77,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           <MaterialCommunityIcons
             name={!wasLarge ? 'grid-large' : 'grid'}
             size={25}
-            color={mode !== Mode.List ? Colors.black : Colors.primary}
+            color={mode !== Mode.List ? Colors.black : Colors.grey}
           />
         </TouchableOpacity>
       </View>
@@ -99,7 +99,9 @@ const Home: React.FC<Props> = ({ navigation }) => {
           <FlatList
             style={{ flex: 1, margin: 10 }}
             data={clubs}
-            renderItem={({ item }) => <ClubList item={item} />}
+            renderItem={({ item }) => (
+              <ClubList item={item} navigation={navigation} />
+            )}
             keyExtractor={(item) => item.id.toString()}
           />
         )}

@@ -25,7 +25,9 @@ const ClubHeader: React.FC<Props> = ({ navigation, route }) => {
 
   return (
     <View style={styles.header}>
-      <ImageBackground source={Images.Premier_League} style={styles.background}>
+      <ImageBackground
+        source={Images[club.stadium.replace(/\s+/g, '_')]}
+        style={styles.background}>
         <View
           style={{
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -34,7 +36,7 @@ const ClubHeader: React.FC<Props> = ({ navigation, route }) => {
           }}>
           <TouchableOpacity
             onPress={() => {
-              navigation.goBack()
+              navigation.goBack();
             }}
             style={styles.button}>
             <Ionicons name="md-return-up-back" size={35} color={Colors.white} />
