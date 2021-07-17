@@ -5,10 +5,12 @@ import configureStore from './CreateStore';
 import rootSaga from 'src/redux-saga';
 // Reducers
 import { reducer as ClubReducer } from './club/Reducers';
+import { reducer as PlayerReducer } from './player/Reducers';
 
 export default () => {
   const appReducer = combineReducers({
     clubReducer: ClubReducer,
+    playerReducer: PlayerReducer,
   });
 
   const rootReducer = (state: any, action: any) => {

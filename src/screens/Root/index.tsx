@@ -4,6 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
+import PlayerActions from 'src/redux/player/Actions';
 // Theme
 import styles from './style';
 import { Images } from 'src/theme';
@@ -17,11 +18,13 @@ const Root: React.FC<Props> = (props) => {
 
   const buildData = () => {
     dispatch(ClubActions.loadClubs());
-  }
+    dispatch(PlayerActions.loadPlayers());
+  };
 
   const [LogoAnime] = useState<Animated.Value>(new Animated.Value(0));
 
   useEffect(() => {
+    buildData();
     Animated.parallel([
       Animated.spring(LogoAnime, {
         toValue: 1,
@@ -31,7 +34,6 @@ const Root: React.FC<Props> = (props) => {
       }),
     ]).start(() => {
       // todo : navigate after data loading instead of timeout
-      buildData();
       setTimeout(() => props.navigation.navigate('Home'), 1500);
     });
   }, []);
