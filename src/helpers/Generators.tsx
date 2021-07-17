@@ -1,4 +1,4 @@
-import { Player, Position } from 'src/interfaces/Player';
+import { Player, Position, Team } from 'src/interfaces/Player';
 import { Club, League } from 'src/interfaces/Club';
 
 const createPlayer = (
@@ -10,6 +10,7 @@ const createPlayer = (
   age: number,
   height: number,
   position: Position,
+  teams: Array<Team>,
 ): Player => {
   let player: Player = {
     id,
@@ -20,6 +21,7 @@ const createPlayer = (
     age,
     height,
     position,
+    teams,
   };
   return player;
 };
@@ -34,9 +36,24 @@ const createClub = (
     id,
     name,
     league,
-    stadium
+    stadium,
   };
   return club;
 };
 
-export { createPlayer, createClub };
+const createPlayerTeam = (
+  club_id: number,
+  season: string,
+  number: number,
+  goals: number,
+): Team => {
+  let team: Team = {
+    club_id,
+    season,
+    number,
+    goals
+  };
+  return team;
+};
+
+export { createPlayer, createClub, createPlayerTeam };

@@ -2,7 +2,7 @@ enum Position {
   Goalkeeper = 'Goal keeper',
   Defender = 'Defender',
   Midfielder = 'Midfielder',
-  Forward = 'Forward'
+  Forward = 'Forward',
 }
 
 interface Player {
@@ -14,6 +14,14 @@ interface Player {
   age: number;
   height: number;
   position: Position;
+  teams: Array<Team>;
 }
 
-export { Player, Position };
+interface Team {
+  club_id: number;
+  season: string;
+  number: number;
+  goals: number;
+}
+
+export { Player, Position, Team };

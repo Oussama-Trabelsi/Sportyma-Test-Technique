@@ -1,4 +1,4 @@
-import { createPlayer } from 'src/helpers/Generators';
+import { createPlayer, createPlayerTeam } from 'src/helpers/Generators';
 import { Player, Position } from 'src/interfaces/Player';
 
 const generatePlayers = async (): Promise<Array<Player>> => {
@@ -12,6 +12,12 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     29,
     190,
     Position.Goalkeeper,
+    [
+      createPlayerTeam(1, '2021/2022', 1, 0),
+      createPlayerTeam(1, '2020/2021', 1, 0),
+      createPlayerTeam(1, '2019/2020', 1, 0),
+      createPlayerTeam(1, '2018/2019', 1, 0),
+    ],
   );
   let RunarAlexRunarsson: Player = createPlayer(
     2,
@@ -22,6 +28,10 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     26,
     186,
     Position.Goalkeeper,
+    [
+      createPlayerTeam(1, '2021/2022', 13, 0),
+      createPlayerTeam(1, '2020/2021', 13, 0),
+    ],
   );
   let KarlHein: Player = createPlayer(
     3,
@@ -32,6 +42,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     19,
     193,
     Position.Goalkeeper,
+    [createPlayerTeam(1, '2020/2021', 44, 0)],
   );
   let HectorBellerin: Player = createPlayer(
     4,
@@ -42,6 +53,18 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     26,
     178,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2021/2022', 2, 0),
+      createPlayerTeam(1, '2020/2021', 2, 1),
+      createPlayerTeam(1, '2019/2020', 2, 1),
+      createPlayerTeam(1, '2018/2019', 2, 0),
+      createPlayerTeam(1, '2017/2018', 2, 2),
+      createPlayerTeam(1, '2016/2017', 2, 1),
+      createPlayerTeam(1, '2015/2016', 2, 1),
+      createPlayerTeam(1, '2014/2015', 2, 2),
+      createPlayerTeam(1, '2013/2014', 2, 0),
+      createPlayerTeam(1, '2012/2013', 2, 0),
+    ],
   );
   let KieranTierney: Player = createPlayer(
     5,
@@ -52,6 +75,11 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     24,
     178,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2021/2022', 3, 0),
+      createPlayerTeam(1, '2020/2021', 3, 1),
+      createPlayerTeam(1, '2019/2020', 3, 1),
+    ],
   );
   let GabrielMagalhaes: Player = createPlayer(
     6,
@@ -62,6 +90,10 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     23,
     190,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2021/2022', 6, 0),
+      createPlayerTeam(1, '2020/2021', 6, 2),
+    ],
   );
   let RobHolding: Player = createPlayer(
     7,
@@ -72,6 +104,14 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     25,
     189,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2021/2022', 16, 0),
+      createPlayerTeam(1, '2020/2021', 16, 0),
+      createPlayerTeam(1, '2019/2020', 16, 0),
+      createPlayerTeam(1, '2018/2019', 16, 0),
+      createPlayerTeam(1, '2017/2018', 16, 0),
+      createPlayerTeam(1, '2016/2017', 16, 0),
+    ],
   );
   let CedricSoares: Player = createPlayer(
     8,
@@ -82,6 +122,16 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     29,
     172,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2021/2022', 17, 0),
+      createPlayerTeam(1, '2020/2021', 17, 0),
+      createPlayerTeam(1, '2019/2020', 17, 1),
+      createPlayerTeam(16, '2019/2020', 17, 0),
+      createPlayerTeam(16, '2018/2019', 17, 1),
+      createPlayerTeam(16, '2017/2018', 17, 0),
+      createPlayerTeam(16, '2016/2017', 17, 0),
+      createPlayerTeam(16, '2015/2016', 17, 0),
+    ],
   );
   let CalumChambers: Player = createPlayer(
     9,
@@ -92,6 +142,19 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     26,
     182,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2021/2022', 21, 0),
+      createPlayerTeam(1, '2020/2021', 21, 0),
+      createPlayerTeam(1, '2019/2020', 21, 1),
+      createPlayerTeam(16, '2018/2019', 21, 2),
+      createPlayerTeam(1, '2018/2019', 21, 0),
+      createPlayerTeam(1, '2017/2018', 21, 0),
+      createPlayerTeam(1, '2016/2017', 21, 1),
+      createPlayerTeam(1, '2015/2016', 21, 0),
+      createPlayerTeam(1, '2014/2015', 21, 1),
+      createPlayerTeam(16, '2013/2014', 21, 0),
+      createPlayerTeam(16, '2012/2013', 21, 0),
+    ],
   );
   let PabloMari: Player = createPlayer(
     10,
@@ -102,6 +165,10 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     27,
     193,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2020/2021', 22, 0),
+      createPlayerTeam(1, '2019/2020', 22, 0),
+    ],
   );
   let SeadKolasinac: Player = createPlayer(
     11,
@@ -112,6 +179,13 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     28,
     183,
     Position.Defender,
+    [
+      createPlayerTeam(1, '2021/2022', 22, 0),
+      createPlayerTeam(1, '2020/2021', 22, 0),
+      createPlayerTeam(1, '2019/2020', 22, 0),
+      createPlayerTeam(1, '2018/2019', 21, 0),
+      createPlayerTeam(1, '2017/2018', 21, 2),
+    ],
   );
   let BukayoSaka: Player = createPlayer(
     12,
@@ -122,6 +196,12 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     19,
     178,
     Position.Midfielder,
+    [
+      createPlayerTeam(1, '2021/2022', 7, 0),
+      createPlayerTeam(1, '2020/2021', 7, 5),
+      createPlayerTeam(1, '2019/2020', 7, 1),
+      createPlayerTeam(1, '2018/2019', 7, 0),
+    ],
   );
   let ThomasPartey: Player = createPlayer(
     13,
@@ -132,6 +212,10 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     28,
     185,
     Position.Midfielder,
+    [
+      createPlayerTeam(1, '2021/2022', 5, 0),
+      createPlayerTeam(1, '2020/2021', 5, 0),
+    ],
   );
   let MohamedElneny: Player = createPlayer(
     14,
@@ -142,6 +226,16 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     29,
     180,
     Position.Midfielder,
+    [
+      createPlayerTeam(1, '2021/2022', 25, 0),
+      createPlayerTeam(1, '2020/2021', 25, 1),
+      createPlayerTeam(1, '2019/2020', 25, 0),
+      createPlayerTeam(1, '2018/2019', 25, 0),
+      createPlayerTeam(1, '2018/2019', 25, 0),
+      createPlayerTeam(1, '2017/2018', 25, 0),
+      createPlayerTeam(1, '2016/2017', 25, 1),
+      createPlayerTeam(1, '2015/2016', 25, 0),
+    ],
   );
   let EmileSmithRowe: Player = createPlayer(
     15,
@@ -152,6 +246,11 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     20,
     182,
     Position.Midfielder,
+    [
+      createPlayerTeam(1, '2021/2022', 32, 2),
+      createPlayerTeam(1, '2020/2021', 32, 0),
+      createPlayerTeam(1, '2019/2020', 32, 0),
+    ],
   );
   let GranitXhaka: Player = createPlayer(
     16,
@@ -162,6 +261,14 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     28,
     185,
     Position.Midfielder,
+    [
+      createPlayerTeam(1, '2021/2022', 34, 0),
+      createPlayerTeam(1, '2020/2021', 34, 1),
+      createPlayerTeam(1, '2019/2020', 34, 1),
+      createPlayerTeam(1, '2018/2019', 34, 4),
+      createPlayerTeam(1, '2017/2018', 34, 1),
+      createPlayerTeam(1, '2016/2017', 34, 2),
+    ],
   );
   let AinsleyMaitlandNiles: Player = createPlayer(
     17,
@@ -172,6 +279,16 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     23,
     177,
     Position.Midfielder,
+    [
+      createPlayerTeam(1, '2021/2022', 15, 0),
+      createPlayerTeam(1, '2020/2021', 15, 0),
+      createPlayerTeam(1, '2019/2020', 15, 0),
+      createPlayerTeam(1, '2018/2019', 15, 1),
+      createPlayerTeam(1, '2017/2018', 15, 0),
+      createPlayerTeam(1, '2016/2017', 15, 0),
+      createPlayerTeam(1, '2015/2016', 15, 0),
+      createPlayerTeam(1, '2014/2015', 15, 0),
+    ],
   );
   let JosephWillock: Player = createPlayer(
     18,
@@ -182,6 +299,15 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     21,
     179,
     Position.Midfielder,
+    [
+      createPlayerTeam(14, '2021/2022', 28, 0),
+      createPlayerTeam(1, '2021/2022', 28, 0),
+      createPlayerTeam(14, '2020/2021', 28, 8),
+      createPlayerTeam(1, '2020/2021', 28, 0),
+      createPlayerTeam(1, '2019/2020', 28, 1),
+      createPlayerTeam(1, '2018/2019', 28, 1),
+      createPlayerTeam(1, '2017/2018', 28, 0),
+    ],
   );
   let LucasTorreira: Player = createPlayer(
     19,
@@ -192,6 +318,12 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     25,
     168,
     Position.Midfielder,
+    [
+      createPlayerTeam(1, '2021/2022', 11, 0),
+      createPlayerTeam(1, '2020/2021', 11, 0),
+      createPlayerTeam(1, '2019/2020', 11, 1),
+      createPlayerTeam(1, '2018/2019', 11, 2),
+    ],
   );
   let AlexandreLacazette: Player = createPlayer(
     20,
@@ -202,6 +334,13 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     30,
     175,
     Position.Forward,
+    [
+      createPlayerTeam(1, '2021/2022', 9, 0),
+      createPlayerTeam(1, '2020/2021', 9, 13),
+      createPlayerTeam(1, '2019/2020', 9, 10),
+      createPlayerTeam(1, '2018/2019', 9, 13),
+      createPlayerTeam(1, '2017/2018', 9, 14),
+    ],
   );
   let Willian: Player = createPlayer(
     21,
@@ -212,6 +351,18 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     32,
     175,
     Position.Forward,
+    [
+      createPlayerTeam(1, '2021/2022', 12, 0),
+      createPlayerTeam(1, '2020/2021', 12, 1),
+      createPlayerTeam(6, '2020/2021', 12, 13),
+      createPlayerTeam(6, '2019/2020', 12, 9),
+      createPlayerTeam(6, '2018/2019', 12, 3),
+      createPlayerTeam(6, '2017/2018', 12, 6),
+      createPlayerTeam(6, '2016/2017', 12, 8),
+      createPlayerTeam(6, '2015/2016', 12, 5),
+      createPlayerTeam(6, '2014/2015', 12, 2),
+      createPlayerTeam(6, '2013/2014', 12, 4),
+    ],
   );
   let PierreEmerickAubameyang: Player = createPlayer(
     22,
@@ -222,6 +373,13 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     32,
     187,
     Position.Forward,
+    [
+      createPlayerTeam(1, '2021/2022', 14, 0),
+      createPlayerTeam(1, '2020/2021', 14, 10),
+      createPlayerTeam(1, '2019/2020', 14, 22),
+      createPlayerTeam(1, '2018/2019', 14, 22),
+      createPlayerTeam(1, '2017/2018', 14, 10),
+    ],
   );
   let NicolasPepe: Player = createPlayer(
     23,
@@ -232,6 +390,11 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     26,
     183,
     Position.Goalkeeper,
+    [
+      createPlayerTeam(1, '2021/2022', 19, 0),
+      createPlayerTeam(1, '2020/2021', 19, 10),
+      createPlayerTeam(1, '2019/2020', 19, 5),
+    ],
   );
   let ReissNelson: Player = createPlayer(
     24,
@@ -242,6 +405,13 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     21,
     175,
     Position.Forward,
+    [
+      createPlayerTeam(1, '2021/2022', 24, 0),
+      createPlayerTeam(1, '2020/2021', 24, 0),
+      createPlayerTeam(1, '2019/2020', 24, 1),
+      createPlayerTeam(1, '2018/2019', 24, 0),
+      createPlayerTeam(1, '2017/2018', 24, 0),
+    ],
   );
   let EddieNketiah: Player = createPlayer(
     25,
@@ -252,6 +422,12 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     22,
     175,
     Position.Forward,
+    [
+      createPlayerTeam(1, '2020/2021', 30, 2),
+      createPlayerTeam(1, '2019/2020', 30, 2),
+      createPlayerTeam(1, '2018/2019', 30, 1),
+      createPlayerTeam(1, '2017/2018', 30, 0),
+    ],
   );
   let GabrielMartinelli: Player = createPlayer(
     26,
@@ -262,6 +438,10 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     20,
     190,
     Position.Forward,
+    [
+      createPlayerTeam(1, '2020/2021', 35, 2),
+      createPlayerTeam(1, '2019/2020', 35, 3),
+    ],
   );
   let FolarinBalogun: Player = createPlayer(
     27,
@@ -272,6 +452,10 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     20,
     178,
     Position.Forward,
+    [
+      createPlayerTeam(1, '2020/2021', 38, 0),
+      createPlayerTeam(1, '2019/2020', 38, 0),
+    ],
   );
   players.push(
     BerndLeno,
