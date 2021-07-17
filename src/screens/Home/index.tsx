@@ -38,7 +38,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
   const clubs = useSelector((state: any) => state.clubReducer.clubs);
   const [mode, setMode] = useState<Mode>(Mode.List);
-  const [wasLarge, setWasLarge] = useState<boolean>(true);
+  const [wasLarge, setWasLarge] = useState<boolean>(false);
   const [league, setLeague] = useState<League>(League.PremierLeague);
 
   const windowWidth = Dimensions.get('window').width;
