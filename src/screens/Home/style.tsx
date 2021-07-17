@@ -5,12 +5,13 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
-    justifyContent: 'center',
-    alignItems: 'center'
+    padding: 20,
+    //justifyContent: 'center',
+    //alignItems: 'center'
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
     resizeMode: 'contain',
   },
 });
