@@ -38,8 +38,9 @@ export default StyleSheet.create({
   boldText: {
     color: Colors.white,
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 21,
     maxWidth: '65%',
+    fontFamily: 'BlankenyScript'
   },
   mediumText: {
     position: 'absolute',
@@ -47,5 +48,6 @@ export default StyleSheet.create({
     right: 15,
     color: Colors.white,
     fontSize: 15,
+    fontFamily: 'Legacy'
   },
 });
