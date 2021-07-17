@@ -1,5 +1,8 @@
 enum Position {
-  Goalkeeper = 'Goalkeeper',
+  Goalkeeper = 'Goal keeper',
+  Defender = 'Defender',
+  Midfielder = 'Midfielder',
+  Forward = 'Forward'
 }
 
 interface Player {
