@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 // Types
 import { Player } from 'src/interfaces/Player';
@@ -7,6 +7,7 @@ import { Player } from 'src/interfaces/Player';
 import styles from './style';
 import { Colors } from 'src/theme';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { getPlayerNumber } from 'src/helpers/Common';
 
 interface Props {
   item: Player;
@@ -15,19 +16,12 @@ interface Props {
 }
 
 const PlayerGrid: React.FC<Props> = ({ item, navigation, clubId }) => {
-  
   /* retrieve player number within a team */
-  const getPlayerNumber = (): number => {
-    let number = -1;
-    item.teams.map((t) => {
-      if (t.club_id === clubId) number = t.number;
-      return;
-    });
-    return number;
-  };
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate('Player', { player: item, club_id: clubId })}>
       <View
         style={{
           alignItems: 'center',
@@ -35,7 +29,7 @@ const PlayerGrid: React.FC<Props> = ({ item, navigation, clubId }) => {
           backgroundColor: 'black',
           flex: 0.3,
         }}>
-        <Text style={styles.number}>{getPlayerNumber()}</Text>
+        <Text style={styles.number}>{getPlayerNumber(item.teams, clubId)}</Text>
       </View>
       <View style={styles.content}>
         <Text style={styles.boldText}>{item.name}</Text>
@@ -52,7 +46,7 @@ const PlayerGrid: React.FC<Props> = ({ item, navigation, clubId }) => {
         <Text style={styles.text}>{`${item.birthdate} ( ${item.age} )`}</Text>
         <Text style={styles.text}>{`${item.height} cm`}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

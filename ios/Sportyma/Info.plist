@@ -71,6 +71,10 @@
 		<string>Zocial.ttf</string>
 		<string>BlankenyScript.otf</string>
 		<string>Legacy.ttf</string>
+		<string>CarmenSans-Bold.ttf</string>
+		<string>CarmenSans-Heavy.ttf</string>
+		<string>CarmenSans-Regular.ttf</string>
+		<string>CarmenSans-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

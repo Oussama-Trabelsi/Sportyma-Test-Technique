@@ -1,6 +1,7 @@
 export default {
   logo: require('src/assets/Images/logo.jpg'),
   Premier_League: require('src/assets/Images/Premier_League.jpg'),
+  player: require('src/assets/Images/player.png'),
   /* Club logo */
   Arsenal: require('src/assets/Images/Arsenal.png'),
   Manchester_United: require('src/assets/Images/Manchester_United.png'),
