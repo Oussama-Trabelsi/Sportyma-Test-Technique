@@ -18,7 +18,6 @@ import ClubActions from 'src/redux/club/Actions';
 import { Club } from 'src/interfaces/Club';
 // Theme
 import styles from './style';
-import { Images } from 'src/theme';
 
 interface Props {
   navigation: StackNavigationProp<any, 'Club'>;
