@@ -11,9 +11,21 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 interface Props {
   item: Player;
   navigation: StackNavigationProp<any, 'Club'>;
+  clubId: number;
 }
 
-const PlayerGrid: React.FC<Props> = ({ item }) => {
+const PlayerGrid: React.FC<Props> = ({ item, navigation, clubId }) => {
+  
+  /* retrieve player number within a team */
+  const getPlayerNumber = (): number => {
+    let number = -1;
+    item.teams.map((t) => {
+      if (t.club_id === clubId) number = t.number;
+      return;
+    });
+    return number;
+  };
+
   return (
     <View style={styles.container}>
       <View
@@ -23,7 +35,7 @@ const PlayerGrid: React.FC<Props> = ({ item }) => {
           backgroundColor: 'black',
           flex: 0.3,
         }}>
-        <Text style={styles.number}>9</Text>
+        <Text style={styles.number}>{getPlayerNumber()}</Text>
       </View>
       <View style={styles.content}>
         <Text style={styles.boldText}>{item.name}</Text>

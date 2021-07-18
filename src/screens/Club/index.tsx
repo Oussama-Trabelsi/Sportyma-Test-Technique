@@ -44,7 +44,7 @@ const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
         spacing={20}
         data={team}
         renderItem={({ item }) => (
-          <PlayerGrid item={item} navigation={navigation} />
+          <PlayerGrid item={item} navigation={navigation} clubId={club.id} />
         )}
       />
     </SafeAreaView>
