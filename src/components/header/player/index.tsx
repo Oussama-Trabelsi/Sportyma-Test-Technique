@@ -26,9 +26,16 @@ enum Action {
 
 const PlayerHeader: React.FC<Props> = ({ player, clubId, navigation }) => {
   const dispatch = useDispatch();
+  const team = useSelector((state: any) => state.clubReducer.team);
 
   const changePlayer = (action: Action) => {
-    dispatch(PlayerActions.changePlayer(action));
+    dispatch(
+      PlayerActions.changePlayer({
+        to: action,
+        team: team,
+        player: player,
+      }),
+    );
   };
 
   return (

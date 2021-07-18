@@ -9,7 +9,17 @@ export function* loadPlayers() {
   yield put(PlayerActions.setData(players));
 }
 
+enum Action {
+  NEXT = 'Next',
+  PREVIOUS = 'Previous',
+}
+
 /* changes to next or previous player on a team */
 export function* changePlayer(action: any) {
-  console.log(action.action)
+  const { to, team, player } = action.payload;
+  const playerIndex = team.findIndex((obj: Player) => obj?.id === player.id);
+  let newIndex = to === Action.NEXT ? playerIndex + 1 : playerIndex - 1;
+  if (newIndex < 0) newIndex = team.length - 1;
+  else if (newIndex > team.length - 1) newIndex = 0;
+  yield put(PlayerActions.setPlayer(team[newIndex]));
 }
