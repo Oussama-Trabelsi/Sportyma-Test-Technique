@@ -8,6 +8,8 @@ import styles from './style';
 import { Colors } from 'src/theme';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { getPlayerNumber } from 'src/helpers/Common';
+import { useDispatch } from 'react-redux';
+import PlayerActions from 'src/redux/player/Actions';
 
 interface Props {
   item: Player;
@@ -16,12 +18,15 @@ interface Props {
 }
 
 const PlayerGrid: React.FC<Props> = ({ item, navigation, clubId }) => {
-  /* retrieve player number within a team */
+  const dispatch = useDispatch();
+
+  const onPress = () => {
+    dispatch(PlayerActions.setPlayer(item));
+    navigation.navigate('Player', { club_id: clubId });
+  };
 
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => navigation.navigate('Player', { player: item, club_id: clubId })}>
+    <TouchableOpacity style={styles.container} onPress={() => onPress()}>
       <View
         style={{
           alignItems: 'center',

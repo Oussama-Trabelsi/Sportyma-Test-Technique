@@ -9,3 +9,7 @@ export function* loadPlayers() {
   yield put(PlayerActions.setData(players));
 }
 
+/* changes to next or previous player on a team */
+export function* changePlayer(action: any) {
+  console.log(action.action)
+}

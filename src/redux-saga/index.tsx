@@ -5,7 +5,7 @@ import { ClubTypes } from 'src/redux/club/Actions';
 import { PlayerTypes } from 'src/redux/player/Actions';
 // Sagas
 import { loadClubs, getClubs, generateSquad } from './Club';
-import { loadPlayers } from './Player';
+import { loadPlayers, changePlayer } from './Player';
 
 export default function* root() {
   yield all([
@@ -15,5 +15,6 @@ export default function* root() {
     takeLatest(ClubTypes.GENERATE_SQUAD, generateSquad),
     // Player Sagas
     takeLatest(PlayerTypes.LOAD_PLAYERS, loadPlayers),
+    takeLatest(PlayerTypes.CHANGE_PLAYER, changePlayer),
   ]);
 }

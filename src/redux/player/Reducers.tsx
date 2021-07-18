@@ -16,17 +16,16 @@ export const setData = (
   data: players,
 });
 
-export const setPlayers = (
+export const setPlayer = (
   state: IInitialState,
-  { players }: { players: Array<Player> },
+  { player }: { player: Player },
 ) => ({
   ...state,
-  clubs: players,
-  loading: false,
+  player: player,
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
   [PlayerTypes.PLAYERS_LOADING]: playersLoading,
   [PlayerTypes.SET_DATA]: setData,
-  [PlayerTypes.SET_PLAYERS]: setPlayers,
+  [PlayerTypes.SET_PLAYER]: setPlayer,
 });

@@ -7,7 +7,11 @@ import styles from './style';
 import { Colors, Images } from 'src/theme';
 import { Player } from 'src/interfaces/Player';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { getPlayerNumber } from 'src/helpers/Common';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+import PlayerActions from 'src/redux/player/Actions';
 
 interface Props {
   player: Player;
@@ -15,7 +19,18 @@ interface Props {
   navigation: StackNavigationProp<any, 'Player'>;
 }
 
+enum Action {
+  NEXT = 'Next',
+  PREVIOUS = 'Previous',
+}
+
 const PlayerHeader: React.FC<Props> = ({ player, clubId, navigation }) => {
+  const dispatch = useDispatch();
+
+  const changePlayer = (action: Action) => {
+    dispatch(PlayerActions.changePlayer(action));
+  };
+
   return (
     <View style={styles.header}>
       <View
@@ -25,13 +40,39 @@ const PlayerHeader: React.FC<Props> = ({ player, clubId, navigation }) => {
           flex: 1,
         }}>
         <View style={styles.topMask} />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            navigation.goBack();
-          }}>
-          <Ionicons name="md-return-up-back" size={35} color={Colors.white} />
-        </TouchableOpacity>
+        <View style={[styles.row, { justifyContent: 'space-between' }]}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              navigation.goBack();
+            }}>
+            <Ionicons name="md-return-up-back" size={35} color={Colors.white} />
+          </TouchableOpacity>
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                changePlayer(Action.PREVIOUS);
+              }}>
+              <MaterialCommunityIcons
+                name="arrow-left-bold"
+                size={35}
+                color={Colors.white}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                changePlayer(Action.NEXT);
+              }}>
+              <MaterialCommunityIcons
+                name="arrow-right-bold"
+                size={35}
+                color={Colors.white}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
         <Image source={Images.player} style={styles.image} />
         <View style={styles.mask}>
           <View>

@@ -5,8 +5,7 @@ import { RouteProp } from '@react-navigation/native';
 import PlayerHeader from 'src/components/header/player';
 import GoalList from 'src/components/card/goal-list';
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
-import PlayerActions from 'src/redux/player/Actions';
+import { useSelector } from 'react-redux';
 import { Player } from 'src/interfaces/Player';
 // Theme
 import styles from './style';
@@ -17,12 +16,12 @@ interface Props {
 }
 
 const PlayerDetails: React.FC<Props> = ({ navigation, route }) => {
-  const player: Player = route.params?.player;
+  const player: Player = useSelector(
+    (state: any) => state.playerReducer.player,
+  );
   const club_id: number = route.params?.club_id;
 
-  useEffect(() => {
-    //dispatch(ClubActions.generateSquad(club.id));
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <SafeAreaView style={styles.container}>

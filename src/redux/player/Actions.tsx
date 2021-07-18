@@ -5,7 +5,8 @@ const { Types, Creators } = createActions({
   getPlayers: ['payload'],
   playersLoading: null,
   setData: ['players'],
-  setPlayers: ['players'],
+  setPlayer: ['player'],
+  changePlayer: ['action'],
 });
 
 export const PlayerTypes = Types;
