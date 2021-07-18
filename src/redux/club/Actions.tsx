@@ -6,6 +6,8 @@ const { Types, Creators } = createActions({
   clubsLoading: null,
   setData: ['clubs'],
   setClubs: ['clubs'],
+  generateSquad: ['club_id'],
+  setTeam: ['team'],
 });
 
 export const ClubTypes = Types;

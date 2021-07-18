@@ -8,3 +8,4 @@ export function* loadPlayers() {
   const players: Array<Player> = yield call(playerFactory.generatePlayers);
   yield put(PlayerActions.setData(players));
 }
+

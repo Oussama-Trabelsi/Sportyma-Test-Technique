@@ -27,11 +27,14 @@ interface Props {
 
 const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
   const club: Club = route.params?.club;
-  const players = useSelector((state: any) => state.playerReducer.data);
+  const team = useSelector((state: any) => state.clubReducer.team);
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
+  const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(ClubActions.generateSquad(club.id));
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -40,7 +43,7 @@ const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
         style={{ flex: 1 }}
         itemDimension={(windowWidth - 60) / 2}
         spacing={20}
-        data={players}
+        data={team}
         renderItem={({ item }) => (
           <PlayerGrid item={item} navigation={navigation} />
         )}
