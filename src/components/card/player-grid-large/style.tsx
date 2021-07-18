@@ -2,6 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { Colors } from 'src/theme';
 
 const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 export default StyleSheet.create({
   container: {
@@ -49,4 +50,14 @@ export default StyleSheet.create({
   flag: {
     fontSize: 20,
   },
+  emptyContainer: {
+    height: windowHeight - (windowHeight - 50) / 3 - 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logo: {
+    width: windowWidth / 3,
+    height: windowWidth / 3,
+    resizeMode: 'contain'
+  }
 });

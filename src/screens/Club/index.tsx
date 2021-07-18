@@ -12,6 +12,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import ClubHeader from 'src/components/header/club';
 import PlayerGrid from 'src/components/card/player-grid-large';
+import PlayerGridEmpty from 'src/components/card/player-grid-large/empty';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
@@ -38,6 +39,7 @@ const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
     <SafeAreaView style={styles.container}>
       <ClubHeader club={club} navigation={navigation} />
       <FlatGrid
+        ListEmptyComponent={<PlayerGridEmpty navigation={navigation} />}
         style={{ flex: 1 }}
         itemDimension={(windowWidth - 60) / 2}
         spacing={20}
