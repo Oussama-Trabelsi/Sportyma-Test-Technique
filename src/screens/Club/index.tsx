@@ -29,7 +29,6 @@ const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
   const club: Club = route.params?.club;
   const team = useSelector((state: any) => state.clubReducer.team);
   const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
   const dispatch = useDispatch();
 
   useEffect(() => {
