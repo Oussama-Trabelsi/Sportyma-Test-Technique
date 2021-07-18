@@ -21,10 +21,12 @@ const PlayerHeader: React.FC<Props> = ({ player, clubId, navigation }) => {
       <View
         style={{
           backgroundColor: Colors.primary,
-          padding: 20,
+          paddingTop: 20,
           flex: 1,
         }}>
+        <View style={styles.topMask} />
         <TouchableOpacity
+          style={styles.button}
           onPress={() => {
             navigation.goBack();
           }}>
@@ -33,7 +35,9 @@ const PlayerHeader: React.FC<Props> = ({ player, clubId, navigation }) => {
         <Image source={Images.player} style={styles.image} />
         <View style={styles.mask}>
           <View>
-            <Text style={styles.number}>{getPlayerNumber(player.teams, clubId)}</Text>
+            <Text style={styles.number}>
+              {getPlayerNumber(player.teams, clubId)}
+            </Text>
             <Text style={styles.name}>{player.name}</Text>
           </View>
           <View>

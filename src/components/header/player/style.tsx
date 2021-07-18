@@ -29,32 +29,44 @@ export default StyleSheet.create({
     resizeMode: 'contain',
     position: 'absolute',
     bottom: 0,
-    right: 10
+    right: 10,
+  },
+  topMask: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: 15,
+    width: windowWidth,
   },
   mask: {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     position: 'absolute',
     top: 60,
     left: 0,
-    height: (windowHeight / 2.5) - 60,
+    height: windowHeight / 2.5 - 60,
     width: windowWidth,
     padding: 10,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   number: {
     fontFamily: 'CarmenSans-Bold',
     color: Colors.white,
-    fontSize: 33
+    fontSize: 33,
   },
   name: {
     fontFamily: 'CarmenSans-Heavy',
     color: Colors.white,
-    fontSize: 24
+    fontSize: 24,
   },
   text: {
     fontFamily: 'CarmenSans-SemiBold',
     color: Colors.white,
     fontSize: 16,
-    marginBottom: 4
-  }
+    marginBottom: 4,
+  },
+  button: {
+    width: 40,
+    marginLeft: 20,
+  },
 });

@@ -1,3 +1,4 @@
+import { Club } from 'src/interfaces/Club';
 import { Team } from 'src/interfaces/Player';
 
 const getPlayerNumber = (teams: Array<Team>, club_id: number): number => {
@@ -9,4 +10,8 @@ const getPlayerNumber = (teams: Array<Team>, club_id: number): number => {
   return number;
 };
 
-export { getPlayerNumber };
+const getClubById = (clubs: Array<Club>, club_id: number): Club => {
+  return clubs.filter((obj) => obj.id === club_id)[0];
+};
+
+export { getPlayerNumber, getClubById };
