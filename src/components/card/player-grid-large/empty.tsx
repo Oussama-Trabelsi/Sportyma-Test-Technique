@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+// Types
 import { StackNavigationProp } from '@react-navigation/stack';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+import ClubActions from 'src/redux/club/Actions';
 // Theme
 import styles from './style';
 import { Images } from 'src/theme';
-import { useDispatch, useSelector } from 'react-redux';
-import ClubActions from 'src/redux/club/Actions';
 
 interface Props {
   navigation: StackNavigationProp<any, 'Club'>;

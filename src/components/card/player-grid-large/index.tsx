@@ -1,15 +1,18 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+// Components
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+// Redux
+import { useDispatch } from 'react-redux';
+import PlayerActions from 'src/redux/player/Actions';
 // Types
 import { Player } from 'src/interfaces/Player';
+import { StackNavigationProp } from '@react-navigation/stack';
+// Helpers
+import { getPlayerNumber } from 'src/helpers/Common';
 // Theme
 import styles from './style';
 import { Colors } from 'src/theme';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { getPlayerNumber } from 'src/helpers/Common';
-import { useDispatch } from 'react-redux';
-import PlayerActions from 'src/redux/player/Actions';
 
 interface Props {
   item: Player;

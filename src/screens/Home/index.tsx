@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import {
   View,
-  Image,
   FlatList,
   TouchableOpacity,
   SafeAreaView,
   Dimensions,
 } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+// Components
 import { FlatGrid } from 'react-native-super-grid';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-// Components
 import Header from 'src/components/header';
 import Grid from 'src/components/card/club-grid';
 import GridLarge from 'src/components/card/club-grid-large';
@@ -19,7 +17,9 @@ import ClubList from 'src/components/card/club-list';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
+// Types
 import { League } from 'src/interfaces/Club';
+import { StackNavigationProp } from '@react-navigation/stack';
 // Theme
 import styles from './style';
 import { Colors } from 'src/theme';
@@ -27,6 +27,7 @@ import { Colors } from 'src/theme';
 interface Props {
   navigation: StackNavigationProp<any, 'Home'>;
 }
+
 enum Mode {
   List = 'list',
   Grid = 'grid',
@@ -38,7 +39,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const clubs = useSelector((state: any) => state.clubReducer.clubs);
   const [mode, setMode] = useState<Mode>(Mode.List);
   const [wasLarge, setWasLarge] = useState<boolean>(false);
-  const [league, setLeague] = useState<League>(League.PremierLeague);
+  const [league] = useState<League>(League.PremierLeague);
 
   const windowWidth = Dimensions.get('window').width;
 
@@ -52,7 +53,8 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const itemDimension = (): number => {
     return mode === Mode.Grid ? (windowWidth - 80) / 3 : (windowWidth - 60) / 2;
   };
-
+  
+  /* on mount : retrieve clubs from league */
   useEffect(() => {
     dispatch(ClubActions.getClubs({ league: league }));
   }, []);
@@ -81,6 +83,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
+      {/* View control : List - Grid - Large grid */}
       <SafeAreaView style={styles.content}>
         {mode !== Mode.List ? (
           <FlatGrid

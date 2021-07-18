@@ -1,4 +1,5 @@
 export default {
+  /* App assets */
   logo: require('src/assets/Images/logo.jpg'),
   Premier_League: require('src/assets/Images/Premier_League.jpg'),
   player: require('src/assets/Images/player.png'),

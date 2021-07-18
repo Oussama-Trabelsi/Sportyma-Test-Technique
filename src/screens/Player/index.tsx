@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { View, FlatList, Text, SafeAreaView } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp } from '@react-navigation/native';
+// Components
 import PlayerHeader from 'src/components/header/player';
 import GoalList from 'src/components/card/goal-list';
 // Redux
 import { useSelector } from 'react-redux';
+// Types
 import { Player } from 'src/interfaces/Player';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 // Theme
 import styles from './style';
 

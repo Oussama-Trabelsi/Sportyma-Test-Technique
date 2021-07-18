@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+// Components
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// Theme
-import styles from './style';
-import { Colors, Images } from 'src/theme';
-import { Player } from 'src/interfaces/Player';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { getPlayerNumber } from 'src/helpers/Common';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import PlayerActions from 'src/redux/player/Actions';
+// Types
+import { Player } from 'src/interfaces/Player';
+import { StackNavigationProp } from '@react-navigation/stack';
+// Helpers
+import { getPlayerNumber } from 'src/helpers/Common';
+// Theme
+import styles from './style';
+import { Colors, Images } from 'src/theme';
 
 interface Props {
   player: Player;

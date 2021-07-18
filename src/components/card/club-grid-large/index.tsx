@@ -6,13 +6,14 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+// Components
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // Types
 import { Club } from 'src/interfaces/Club';
+import { StackNavigationProp } from '@react-navigation/stack';
 // Theme
 import styles from './style';
 import { Colors, Images } from 'src/theme';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface Props {
   item: Club;
@@ -56,14 +57,3 @@ const GridLarge: React.FC<Props> = ({ item, navigation }) => {
 };
 
 export default GridLarge;
-/*
-<View style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <Image
-          style={styles.logo}
-          source={Images[item.name.replace(/\s+/g, '_')]}
-        />
-        <Text style={styles.boldText}>{item.name}</Text>
-        <Text style={styles.mediumText}>{item.stadium}</Text>
-      </View>
-
-*/

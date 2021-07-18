@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Animated } from 'react-native';
+import { View, Text, Image, Animated } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
 import PlayerActions from 'src/redux/player/Actions';
 // Theme
@@ -33,8 +33,7 @@ const Root: React.FC<Props> = (props) => {
         useNativeDriver: false,
       }),
     ]).start(() => {
-      // todo : navigate after data loading instead of timeout
-      setTimeout(() => props.navigation.navigate('Home'), 1500);
+      setTimeout(() => props.navigation.navigate('Home'), 1000);
     });
   }, []);
 
@@ -48,8 +47,9 @@ const Root: React.FC<Props> = (props) => {
             outputRange: [80, 0],
           }),
         }}>
-        <Image source={Images.logo} />
+        <Image source={Images.logo} style={styles.logo} />
       </Animated.View>
+      <Text style={styles.bottom}>@Oussama-Trabelsi</Text>
     </View>
   );
 };

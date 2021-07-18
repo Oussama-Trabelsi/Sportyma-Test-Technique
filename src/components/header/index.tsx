@@ -1,11 +1,5 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Image,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import { View, Text, ImageBackground } from 'react-native';
 import { League } from 'src/interfaces/Club';
 // Theme
 import styles from './style';
@@ -19,9 +13,9 @@ const Header: React.FC<Props> = ({ league }) => {
   return (
     <ImageBackground source={Images.Premier_League} style={styles.background}>
       <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        <TouchableOpacity style={styles.button}>
+        <View style={styles.button}>
           <Text style={styles.buttonText}>{league}</Text>
-        </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   );

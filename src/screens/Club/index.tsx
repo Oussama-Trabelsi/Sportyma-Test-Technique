@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Image,
-  Animated,
-  Text,
-  SafeAreaView,
-  Dimensions,
-} from 'react-native';
+import React, { useEffect } from 'react';
+import { SafeAreaView, Dimensions } from 'react-native';
+// Components
 import { FlatGrid } from 'react-native-super-grid';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp } from '@react-navigation/native';
 import ClubHeader from 'src/components/header/club';
 import PlayerGrid from 'src/components/card/player-grid-large';
 import PlayerGridEmpty from 'src/components/card/player-grid-large/empty';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
+// Types
 import { Club } from 'src/interfaces/Club';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 // Theme
 import styles from './style';
 
@@ -31,6 +26,7 @@ const ClubDetails: React.FC<Props> = ({ navigation, route }) => {
   const windowWidth = Dimensions.get('window').width;
   const dispatch = useDispatch();
 
+  /* on mount : retrieve generate squad for club */
   useEffect(() => {
     dispatch(ClubActions.generateSquad(club.id));
   }, []);

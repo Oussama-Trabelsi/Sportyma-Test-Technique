@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableOpacity, Image, Text } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
 // Types
 import { Club } from 'src/interfaces/Club';
+import { StackNavigationProp } from '@react-navigation/stack';
 // Theme
 import styles from './style';
 import { Images } from 'src/theme';

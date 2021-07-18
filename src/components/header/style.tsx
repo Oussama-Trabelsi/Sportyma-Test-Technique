@@ -8,7 +8,7 @@ export default StyleSheet.create({
   background: {
     width: windowWidth,
     height: windowHeight / 4,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   button: {
     backgroundColor: Colors.white,
@@ -25,6 +25,6 @@ export default StyleSheet.create({
   },
   buttonText: {
     fontFamily: 'Legacy',
-    fontSize: 17
-  }
+    fontSize: 17,
+  },
 });

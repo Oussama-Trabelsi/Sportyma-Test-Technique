@@ -8,4 +8,16 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  logo: {
+    width: 120,
+    height: 120,
+    resizeMode: 'contain',
+  },
+  bottom: {
+    position: 'absolute',
+    bottom: 30,
+    textAlign: 'center',
+    fontFamily: 'CarmenSans-Regular',
+    fontSize: 20 
+  }
 });

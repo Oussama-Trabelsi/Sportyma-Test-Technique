@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   View,
   Image,
@@ -7,13 +7,15 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+// Components
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// Types
+import { Club } from 'src/interfaces/Club';
+import { StackNavigationProp } from '@react-navigation/stack';
 // Theme
 import styles from './style';
 import { Colors, Images } from 'src/theme';
-import { Club } from 'src/interfaces/Club';
 
 interface Props {
   club: Club;
@@ -44,7 +46,7 @@ const ClubHeader: React.FC<Props> = ({ club, navigation }) => {
             <Text style={styles.boldText}>{club.name}</Text>
           </View>
           <View style={styles.bar1}>
-          <Image
+            <Image
               style={styles.logo}
               source={Images[club.name.replace(/\s+/g, '_')]}
             />
@@ -55,7 +57,9 @@ const ClubHeader: React.FC<Props> = ({ club, navigation }) => {
               size={30}
               color={Colors.white}
             />
-            <Text style={[styles.mediumText, {marginLeft: 10}]}>{club.stadium}</Text>
+            <Text style={[styles.mediumText, { marginLeft: 10 }]}>
+              {club.stadium}
+            </Text>
           </View>
         </View>
       </ImageBackground>

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+// Screens
 import Root from 'src/screens/Root';
 import Home from 'src/screens/Home';
 import ClubDetails from 'src/screens/Club';
 import PlayerDetails from 'src/screens/Player';
-import ClubHeader from 'src/components/header/club';
 
 const Stack = createStackNavigator();
 
