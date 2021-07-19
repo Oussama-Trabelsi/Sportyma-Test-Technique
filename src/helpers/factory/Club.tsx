@@ -1,7 +1,9 @@
 import { createClub } from 'src/helpers/Generators';
 import { Club, League } from 'src/interfaces/Club';
+import { getAsync } from 'src/helpers/Common';
 
 const generateClubs = async (): Promise<Array<Club>> => {
+  let storedClubs = await getAsync();
   let clubs: Array<Club> = [];
   let arsenal: Club = createClub(
     1,
@@ -85,7 +87,7 @@ const generateClubs = async (): Promise<Array<Club>> => {
     14,
     'Newcastle United',
     League.PremierLeague,
-    "St James Park",
+    'St James Park',
   );
   let norwichCity: Club = createClub(
     15,
@@ -97,7 +99,7 @@ const generateClubs = async (): Promise<Array<Club>> => {
     16,
     'Southampton',
     League.PremierLeague,
-    "St Marys Stadium",
+    'St Marys Stadium',
   );
   let tottenhamHotspur: Club = createClub(
     17,
@@ -145,7 +147,7 @@ const generateClubs = async (): Promise<Array<Club>> => {
     westHamUnited,
     wolverhamptonWanderers,
   );
-  return clubs;
+  return [...storedClubs, ...clubs];
 };
 
 export const clubFactory = {

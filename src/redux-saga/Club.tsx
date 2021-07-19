@@ -4,6 +4,7 @@ import { clubFactory } from 'src/helpers/factory/Club';
 import { playerFactory } from 'src/helpers/factory/Player';
 import { Club } from 'src/interfaces/Club';
 import { Player } from 'src/interfaces/Player';
+import { storeAsync } from 'src/helpers/Common';
 
 /* generates the club dataset */
 export function* loadClubs() {
@@ -32,7 +33,8 @@ export function* generateSquad(action: any) {
 }
 
 /* sends new club to store and saves it to async storage  */
-export function* createClub(action: any) {
-  console.log(action.club);
+export function* createClub(action: any): any {
+  console.log();
   yield put(ClubActions.addClub(action.club));
+  yield storeAsync(action.club);
 }
