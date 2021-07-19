@@ -71,6 +71,15 @@ const generateValues = (
   return values;
 };
 
+const getRandomColor = (): string => {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
 /* generates datasets for player stats */
 const generateDatasets = (clubs: Array<Club>, teams: Array<Team>): Data => {
   const clubIds = generateClubIds(teams);
@@ -82,8 +91,9 @@ const generateDatasets = (clubs: Array<Club>, teams: Array<Team>): Data => {
       values: generateValues(seasons, teams, c),
       label: getClubById(clubs, c).name,
       config: {
-        color: processColor('red'),
-        fillColor: processColor('blue'),
+        color: processColor(getRandomColor()),
+        fillColor: processColor(getRandomColor()),
+        drawFilled: true,
         drawValues: true,
       },
     };
