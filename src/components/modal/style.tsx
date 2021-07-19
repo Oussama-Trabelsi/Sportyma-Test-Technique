@@ -32,9 +32,10 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   banner: {
-    width: '98.5%',
+    width: '100%',
     height: 120,
     resizeMode: 'contain',
+    backgroundColor: Colors.primary,
   },
   content: {
     flex: 1,
@@ -45,11 +46,11 @@ export default StyleSheet.create({
     paddingTop: windowWidth / 10,
   },
   input: {
-    width: '60%',
+    width: '40%',
     borderBottomWidth: 1,
     borderColor: Colors.grey,
     fontFamily: 'Legacy',
-    fontSize: 16,
+    fontSize: 15,
   },
   buttonContainer: {
     width: '100%',
@@ -73,8 +74,8 @@ export default StyleSheet.create({
   },
   camera: {
     position: 'absolute',
-    top: 20,
-    left: 20,
+    top: 10,
+    left: 10,
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
     width: 40,
     height: 40,
@@ -83,5 +84,10 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderColor: Colors.black,
     borderWidth: 1,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
   },
 });
