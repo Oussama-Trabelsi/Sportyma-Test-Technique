@@ -34,9 +34,15 @@ export const setTeam = (
   team: team,
 });
 
+export const addClub = (state: IInitialState, { club }: { club: Club }) => ({
+  ...state,
+  clubs: [club, ...state.clubs],
+});
+
 export const reducer = createReducer(INITIAL_STATE, {
   [ClubTypes.CLUBS_LOADING]: clubsLoading,
   [ClubTypes.SET_DATA]: setData,
   [ClubTypes.SET_CLUBS]: setClubs,
   [ClubTypes.SET_TEAM]: setTeam,
+  [ClubTypes.ADD_CLUB]: addClub,
 });

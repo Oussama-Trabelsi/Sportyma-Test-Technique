@@ -30,3 +30,8 @@ export function* generateSquad(action: any) {
   });
   yield put(ClubActions.setTeam(team));
 }
+
+/* sends new club to store and saves it to async storage  */
+export function* createClub(action: any) {
+  yield put(ClubActions.addClub(action.club));
+}

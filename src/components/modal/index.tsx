@@ -12,6 +12,9 @@ import {
 import Modal from 'react-native-modal';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import * as ImagePicker from 'react-native-image-picker';
+// Redux
+import { useDispatch } from 'react-redux';
+import ClubActions from 'src/redux/club/Actions';
 // Types
 import { Club, League } from 'src/interfaces/Club';
 // Theme
@@ -29,6 +32,8 @@ enum Type {
 }
 
 const ClubModal: React.FC<Props> = ({ visible, hideModal }) => {
+  const dispatch = useDispatch();
+
   const [clubName, setClubName] = useState<string>('');
   const [stadium, setStadium] = useState<string>('');
   const [focused, setFocused] = useState<boolean>(false);
@@ -74,19 +79,21 @@ const ClubModal: React.FC<Props> = ({ visible, hideModal }) => {
     );
   };
 
-  const pickLogo = async () => {
-    launchImageLibrary(Type.CLUB);
-  };
-
-  const pickBanner = () => {
-    launchImageLibrary(Type.STADIUM);
-  };
-
   /* generates a random number in range */
   const getRandomArbitrary = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
+  /* clears form and hides modal */
+  const leave = () => {
+    hideModal();
+    setFocused(false);
+    setClubName('');
+    setStadium(''), setClubUri(undefined);
+    setStadiumUri(undefined);
+  };
+
+  /* creates a new club */
   const saveClub = () => {
     const club: Club = {
       id: getRandomArbitrary(40, 100),
@@ -96,7 +103,8 @@ const ClubModal: React.FC<Props> = ({ visible, hideModal }) => {
       clubUri: clubUri,
       stadiumUri: stadiumUri,
     };
-    console.log(club);
+    dispatch(ClubActions.createClub(club));
+    leave();
   };
 
   return (
@@ -113,7 +121,9 @@ const ClubModal: React.FC<Props> = ({ visible, hideModal }) => {
             source={stadiumUri ? { uri: stadiumUri } : Images.soccer_field}
             style={styles.banner}
           />
-          <TouchableOpacity style={styles.camera} onPress={() => pickBanner()}>
+          <TouchableOpacity
+            style={styles.camera}
+            onPress={() => launchImageLibrary(Type.STADIUM)}>
             <AntDesign name="camera" size={22} color={Colors.black} />
           </TouchableOpacity>
         </View>
@@ -134,12 +144,7 @@ const ClubModal: React.FC<Props> = ({ visible, hideModal }) => {
           </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
-              onPress={() => {
-                hideModal();
-                setFocused(false);
-                setClubUri(undefined);
-                setStadiumUri(undefined);
-              }}
+              onPress={() => leave()}
               style={[styles.button, { backgroundColor: Colors.white }]}>
               <Text style={styles.buttonText}>Cancel</Text>
             </TouchableOpacity>
@@ -158,7 +163,7 @@ const ClubModal: React.FC<Props> = ({ visible, hideModal }) => {
         </View>
         <TouchableOpacity
           style={styles.logoContainer}
-          onPress={() => pickLogo()}>
+          onPress={() => launchImageLibrary(Type.CLUB)}>
           <Image
             source={clubUri ? { uri: clubUri } : Images.selection}
             style={styles.logo}

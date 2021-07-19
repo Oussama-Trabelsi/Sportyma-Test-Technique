@@ -8,6 +8,8 @@ const { Types, Creators } = createActions({
   setClubs: ['clubs'],
   generateSquad: ['club_id'],
   setTeam: ['team'],
+  createClub: ['club'],
+  addClub: ['club'],
 });
 
 export const ClubTypes = Types;
