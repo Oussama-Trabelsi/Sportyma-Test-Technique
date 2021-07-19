@@ -20,7 +20,11 @@ const Grid: React.FC<Props> = ({ item, navigation }) => {
       <View style={{ justifyContent: 'center', alignItems: 'center' }}>
         <Image
           style={styles.logo}
-          source={Images[item.name.replace(/\s+/g, '_')]}
+          source={
+            item.clubUri
+              ? { uri: item.clubUri }
+              : Images[item.name.replace(/\s+/g, '_')]
+          }
         />
         <Text style={styles.boldText}>{item.name}</Text>
       </View>

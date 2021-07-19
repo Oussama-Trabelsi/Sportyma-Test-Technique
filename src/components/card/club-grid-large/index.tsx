@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Image,
@@ -21,6 +21,10 @@ interface Props {
 }
 
 const GridLarge: React.FC<Props> = ({ item, navigation }) => {
+  useEffect(() => {
+    console.log(item.stadiumUri);
+  }, []);
+
   return (
     <TouchableOpacity
       style={styles.container}
@@ -32,11 +36,19 @@ const GridLarge: React.FC<Props> = ({ item, navigation }) => {
         <ImageBackground
           imageStyle={{ borderTopRightRadius: 11, borderTopLeftRadius: 11 }}
           style={styles.background}
-          source={Images[item.stadium.replace(/\s+/g, '_')]}>
+          source={
+            item.stadiumUri
+              ? { uri: item.stadiumUri }
+              : Images[item.stadium.replace(/\s+/g, '_')]
+          }>
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={Images[item.name.replace(/\s+/g, '_')]}
+              source={
+                item.clubUri
+                  ? { uri: item.clubUri }
+                  : Images[item.name.replace(/\s+/g, '_')]
+              }
             />
           </View>
         </ImageBackground>

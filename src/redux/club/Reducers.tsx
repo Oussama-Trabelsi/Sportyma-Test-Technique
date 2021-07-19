@@ -36,6 +36,7 @@ export const setTeam = (
 
 export const addClub = (state: IInitialState, { club }: { club: Club }) => ({
   ...state,
+  data: [club, ...state.clubs],
   clubs: [club, ...state.clubs],
 });
 

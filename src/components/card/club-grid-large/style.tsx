@@ -2,6 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { Colors } from 'src/theme';
 
 const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 export default StyleSheet.create({
   container: {
@@ -18,7 +19,8 @@ export default StyleSheet.create({
     elevation: 3,
   },
   logo: {
-    width: 50,
+    width: (windowWidth - -60) / 4,
+    height: (windowWidth - 60) / 4,
     resizeMode: 'contain',
   },
   boldText: {
@@ -35,16 +37,17 @@ export default StyleSheet.create({
     marginTop: 10,
   },
   background: {
-    flex: 1,
+    width: '100%',
     height: (windowHeight - 50) / 6,
+    resizeMode: 'contain',
     justifyContent: 'center',
     alignItems: 'center',
   },
   logoContainer: {
-    width: 100,
-    height: 100,
+    width: (windowWidth - -60) / 4,
+    height: (windowWidth - -60) / 4,
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    borderRadius: 50,
+    borderRadius: (windowWidth - -60) / 6,
     alignItems: 'center',
     justifyContent: 'center',
   },

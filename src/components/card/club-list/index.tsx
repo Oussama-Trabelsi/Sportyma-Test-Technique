@@ -25,12 +25,20 @@ const ClubList: React.FC<Props> = ({ item, navigation }) => {
       <ImageBackground
         imageStyle={{ borderRadius: 16 }}
         style={styles.container}
-        source={Images[item.stadium.replace(/\s+/g, '_')]}>
+        source={
+          item.stadiumUri
+            ? { uri: item.stadiumUri }
+            : Images[item.stadium.replace(/\s+/g, '_')]
+        }>
         <View style={styles.row}>
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={Images[item.name.replace(/\s+/g, '_')]}
+              source={
+                item.stadiumUri
+                  ? { uri: item.clubUri }
+                  : Images[item.name.replace(/\s+/g, '_')]
+              }
             />
           </View>
           <Text style={styles.boldText}>{item.name}</Text>

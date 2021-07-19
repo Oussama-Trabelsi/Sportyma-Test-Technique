@@ -28,7 +28,9 @@ const ClubHeader: React.FC<Props> = ({ club, navigation }) => {
   return (
     <View style={styles.header}>
       <ImageBackground
-        source={Images[club.stadium.replace(/\s+/g, '_')]}
+        source={
+          Images[club.stadium.replace(/\s+/g, '_')]
+        }
         style={styles.background}>
         <View
           style={{
