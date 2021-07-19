@@ -2,10 +2,6 @@
 
 ## instructions 
 
-**This app is dependant of the share bike react server 
-
-** Most of the shortcut scripts are in package.json 
-
 1. install dependencies
 ```shell
 yarn install
