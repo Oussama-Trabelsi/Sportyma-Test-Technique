@@ -1,7 +1,9 @@
 import { Player, Position, Team } from 'src/interfaces/Player';
 import { Club, League } from 'src/interfaces/Club';
+import { generateDatasets, generateSeasons } from './Common';
+import { clubFactory } from 'src/helpers/factory/Club';
 
-const createPlayer = (
+const createPlayer = async(
   id: number,
   name: string,
   nationality: string,
@@ -11,7 +13,10 @@ const createPlayer = (
   height: number,
   position: Position,
   teams: Array<Team>,
-): Player => {
+): Promise<Player> => {
+  const xAxis = { valueFormatter: generateSeasons(teams) };
+  const clubs = await clubFactory.generateClubs();
+  const data = generateDatasets(clubs, teams);
   let player: Player = {
     id,
     name,
@@ -22,6 +27,8 @@ const createPlayer = (
     height,
     position,
     teams,
+    data,
+    xAxis,
   };
   return player;
 };
@@ -51,7 +58,7 @@ const createPlayerTeam = (
     club_id,
     season,
     number,
-    goals
+    goals,
   };
   return team;
 };

@@ -1,8 +1,39 @@
+import { ProcessedColorValue } from "react-native";
+
 enum Position {
   Goalkeeper = 'Goal keeper',
   Defender = 'Defender',
   Midfielder = 'Midfielder',
   Forward = 'Forward',
+}
+
+interface Team {
+  club_id: number;
+  season: string;
+  number: number;
+  goals: number;
+}
+
+interface Value {
+  value: number;
+}
+
+interface DataSet {
+  values: Array<Value>;
+  label: string;
+  config: {
+    color: ProcessedColorValue;
+    fillColor: ProcessedColorValue;
+    drawValues: boolean;
+  };
+}
+
+interface xAxis {
+  valueFormatter: Array<string>;
+}
+
+interface Data {
+  dataSets: Array<DataSet>;
 }
 
 interface Player {
@@ -15,13 +46,8 @@ interface Player {
   height: number;
   position: Position;
   teams: Array<Team>;
+  data: Data;
+  xAxis: xAxis;
 }
 
-interface Team {
-  club_id: number;
-  season: string;
-  number: number;
-  goals: number;
-}
-
-export { Player, Position, Team };
+export { Player, Position, Team, Value, DataSet, xAxis, Data };

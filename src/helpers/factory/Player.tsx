@@ -3,7 +3,7 @@ import { Player, Position } from 'src/interfaces/Player';
 
 const generatePlayers = async (): Promise<Array<Player>> => {
   let players: Array<Player> = [];
-  let BerndLeno: Player = createPlayer(
+  let BerndLeno: Player = await createPlayer(
     1,
     'Bernd Leno',
     'Germany',
@@ -19,7 +19,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2018/2019', 1, 0),
     ],
   );
-  let RunarAlexRunarsson: Player = createPlayer(
+  let RunarAlexRunarsson: Player = await createPlayer(
     2,
     'Rúnar Alex Rúnarsson',
     'Iceland',
@@ -33,7 +33,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2020/2021', 13, 0),
     ],
   );
-  let KarlHein: Player = createPlayer(
+  let KarlHein: Player = await createPlayer(
     3,
     'Karl Hein',
     'Estonia',
@@ -44,7 +44,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
     Position.Goalkeeper,
     [createPlayerTeam(1, '2020/2021', 44, 0)],
   );
-  let HectorBellerin: Player = createPlayer(
+  let HectorBellerin: Player = await createPlayer(
     4,
     'Héctor Bellerín',
     'Spain',
@@ -66,7 +66,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2012/2013', 2, 0),
     ],
   );
-  let KieranTierney: Player = createPlayer(
+  let KieranTierney: Player = await createPlayer(
     5,
     'Kieran Tierney',
     'Scotland',
@@ -81,7 +81,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2019/2020', 3, 1),
     ],
   );
-  let GabrielMagalhaes: Player = createPlayer(
+  let GabrielMagalhaes: Player = await createPlayer(
     6,
     'Gabriel Magalhães',
     'Brazil',
@@ -95,7 +95,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2020/2021', 6, 2),
     ],
   );
-  let RobHolding: Player = createPlayer(
+  let RobHolding: Player = await createPlayer(
     7,
     'Rob Holding',
     'England',
@@ -113,7 +113,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2016/2017', 16, 0),
     ],
   );
-  let CedricSoares: Player = createPlayer(
+  let CedricSoares: Player = await createPlayer(
     8,
     'Cédric Soares',
     'Portugal',
@@ -133,7 +133,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(16, '2015/2016', 17, 0),
     ],
   );
-  let CalumChambers: Player = createPlayer(
+  let CalumChambers: Player = await createPlayer(
     9,
     'Calum Chambers',
     'England',
@@ -156,7 +156,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(16, '2012/2013', 21, 0),
     ],
   );
-  let PabloMari: Player = createPlayer(
+  let PabloMari: Player = await createPlayer(
     10,
     'Pablo Marí',
     'Spain',
@@ -170,7 +170,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2019/2020', 22, 0),
     ],
   );
-  let SeadKolasinac: Player = createPlayer(
+  let SeadKolasinac: Player = await createPlayer(
     11,
     'Sead Kolasinac',
     'Germany',
@@ -187,7 +187,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2017/2018', 21, 2),
     ],
   );
-  let BukayoSaka: Player = createPlayer(
+  let BukayoSaka: Player = await createPlayer(
     12,
     'Bukayo Saka',
     'England',
@@ -203,7 +203,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2018/2019', 7, 0),
     ],
   );
-  let ThomasPartey: Player = createPlayer(
+  let ThomasPartey: Player = await createPlayer(
     13,
     'Thomas Partey',
     'Ghana',
@@ -217,7 +217,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2020/2021', 5, 0),
     ],
   );
-  let MohamedElneny: Player = createPlayer(
+  let MohamedElneny: Player = await createPlayer(
     14,
     'Mohamed Elneny',
     'Egypt',
@@ -237,7 +237,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2015/2016', 25, 0),
     ],
   );
-  let EmileSmithRowe: Player = createPlayer(
+  let EmileSmithRowe: Player = await createPlayer(
     15,
     'Emile Smith Rowe',
     'England',
@@ -252,7 +252,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2019/2020', 32, 0),
     ],
   );
-  let GranitXhaka: Player = createPlayer(
+  let GranitXhaka: Player = await createPlayer(
     16,
     'Granit Xhaka',
     'Switzerland',
@@ -270,7 +270,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2016/2017', 34, 2),
     ],
   );
-  let AinsleyMaitlandNiles: Player = createPlayer(
+  let AinsleyMaitlandNiles: Player = await createPlayer(
     17,
     'Ainsley Maitland-Niles',
     'England',
@@ -290,7 +290,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2014/2015', 15, 0),
     ],
   );
-  let JosephWillock: Player = createPlayer(
+  let JosephWillock: Player = await createPlayer(
     18,
     'Joseph Willock',
     'England',
@@ -309,7 +309,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2017/2018', 28, 0),
     ],
   );
-  let LucasTorreira: Player = createPlayer(
+  let LucasTorreira: Player = await createPlayer(
     19,
     'Lucas Torreira',
     'Uruguay',
@@ -325,7 +325,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2018/2019', 11, 2),
     ],
   );
-  let AlexandreLacazette: Player = createPlayer(
+  let AlexandreLacazette: Player = await createPlayer(
     20,
     'Alexandre Lacazette',
     'France',
@@ -342,7 +342,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2017/2018', 9, 14),
     ],
   );
-  let Willian: Player = createPlayer(
+  let Willian: Player = await createPlayer(
     21,
     'Willian',
     'Brazil',
@@ -364,7 +364,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(6, '2013/2014', 12, 4),
     ],
   );
-  let PierreEmerickAubameyang: Player = createPlayer(
+  let PierreEmerickAubameyang: Player = await createPlayer(
     22,
     'Pierre-Emerick Aubameyang',
     'Gabon',
@@ -381,7 +381,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2017/2018', 14, 10),
     ],
   );
-  let NicolasPepe: Player = createPlayer(
+  let NicolasPepe: Player = await createPlayer(
     23,
     'Nicolas Pépé',
     'France',
@@ -396,7 +396,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2019/2020', 19, 5),
     ],
   );
-  let ReissNelson: Player = createPlayer(
+  let ReissNelson: Player = await createPlayer(
     24,
     'Reiss Nelson',
     'England',
@@ -413,7 +413,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2017/2018', 24, 0),
     ],
   );
-  let EddieNketiah: Player = createPlayer(
+  let EddieNketiah: Player = await createPlayer(
     25,
     'Eddie Nketiah',
     'England',
@@ -429,7 +429,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2017/2018', 30, 0),
     ],
   );
-  let GabrielMartinelli: Player = createPlayer(
+  let GabrielMartinelli: Player = await createPlayer(
     26,
     'Gabriel Martinelli',
     'Brazil',
@@ -443,7 +443,7 @@ const generatePlayers = async (): Promise<Array<Player>> => {
       createPlayerTeam(1, '2019/2020', 35, 3),
     ],
   );
-  let FolarinBalogun: Player = createPlayer(
+  let FolarinBalogun: Player = await createPlayer(
     27,
     'Folarin Balogun',
     'England',
