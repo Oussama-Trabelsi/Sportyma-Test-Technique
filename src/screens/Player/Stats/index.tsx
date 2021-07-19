@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, SafeAreaView, processColor } from 'react-native';
 // Components
 import { RadarChart } from 'react-native-charts-wrapper';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 // Redux
 import { useSelector } from 'react-redux';
 // Types
@@ -16,64 +17,33 @@ const PlayerStats: React.FC = () => {
   const [data, setData] = useState<Object>({
     dataSets: [
       {
-        values: [
-          { value: 1 },
-          { value: 9 },
-          { value: 5 },
-          { value: 1 },
-          { value: 7 },
-          { value: 1 },
-          { value: 1 },
-        ],
-        label: 'Arsenal',
+        values: [{ value: 1 }, { value: 3 }, { value: 6 }],
+        label: 'Chelsea',
         config: {
-          color: processColor('#000000'),
-          drawFilled: true,
-          fillColor: processColor('#D9C5C5'),
-          fillAlpha: 100,
-          lineWidth: 0,
-          drawValues: false,
+          color: processColor('blue'),
+          fillColor: processColor('transparent'),
+          drawValues: true,
         },
       },
       {
-        values: [
-          { value: 0.75 },
-          { value: 0.75 },
-          { value: 0.75 },
-          { value: 0.75 },
-          { value: 0.75 },
-          { value: 0.75 },
-          { value: 0.75 },
-        ],
-        label: 'Chelsea',
+        values: [{ value: 4 }, { value: 8 }, { value: 2 }],
+        label: 'Arsenal',
         config: {
-          color: processColor('#000000'),
-          drawFilled: true,
-          fillColor: processColor('#F1DB93'),
-          fillAlpha: 100,
-          lineWidth: 0,
-          drawValues: false,
+          color: processColor('red'),
+          fillColor: processColor('transparent'),
+          drawValues: true,
         },
       },
     ],
   });
 
   const xAxis = {
-    valueFormatter: [
-      '2017/2018',
-      '2017/2018',
-      '2017/2018',
-      '2017/2018',
-      '2017/2018',
-      '2017/2018',
-      '2017/2018',
-    ],
+    valueFormatter: ['2017/2018', '2018/2019', '2019/2020', '2020/2021'],
   };
 
   const yAxis = {
     axisMinimum: 0,
-    axisMaximum: 1,
-    enabled: false,
+    enabled: true,
   };
 
   const legend = {
@@ -95,14 +65,14 @@ const PlayerStats: React.FC = () => {
         data={data}
         xAxis={xAxis}
         yAxis={yAxis}
-        chartDescription={{ text: '' }}
         legend={legend}
+        chartDescription={{ text: 'Goals per season / club', textSize: 16 }}
         drawWeb={true}
         webLineWidth={5}
         webLineWidthInner={5}
         webAlpha={255}
-        webColor={processColor('red')}
-        webColorInner={processColor('green')}
+        webColor={processColor(Colors.primary)}
+        webColorInner={processColor('orange')}
         skipWebLineCount={1}
       />
     </SafeAreaView>
