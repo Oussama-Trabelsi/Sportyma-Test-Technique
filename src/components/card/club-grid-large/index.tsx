@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   View,
   Image,
@@ -21,10 +21,6 @@ interface Props {
 }
 
 const GridLarge: React.FC<Props> = ({ item, navigation }) => {
-  useEffect(() => {
-    console.log(item.stadiumUri);
-  }, []);
-
   return (
     <TouchableOpacity
       style={styles.container}

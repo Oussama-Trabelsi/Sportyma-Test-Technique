@@ -1,8 +1,16 @@
-import React, { useEffect } from 'react';
-import { View, FlatList, Text, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  FlatList,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 // Components
 import PlayerHeader from 'src/components/header/player';
 import GoalList from 'src/components/card/goal-list';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import PlayerStats from './Stats';
 // Redux
 import { useSelector } from 'react-redux';
 // Types
@@ -11,6 +19,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 // Theme
 import styles from './style';
+import { Colors } from 'src/theme';
 
 interface Props {
   navigation: StackNavigationProp<any, 'Player'>;
@@ -23,23 +32,48 @@ const PlayerDetails: React.FC<Props> = ({ navigation, route }) => {
   );
   const club_id: number = route.params?.club_id;
 
-  useEffect(() => {}, []);
+  const [showStats, setShowStats] = useState<boolean>(false);
 
   return (
     <SafeAreaView style={styles.container}>
       <PlayerHeader player={player} clubId={club_id} navigation={navigation} />
-      <Text style={styles.title}>Premier League Playing Career</Text>
-      <View style={styles.table}>
-        <Text style={styles.tableText}>Season</Text>
-        <Text style={styles.tableText}>Club</Text>
-        <Text style={styles.tableText}>Goals</Text>
+      <View style={styles.row}>
+        <Text style={styles.title}>Premier League Playing Career</Text>
+        {!showStats ? (
+          <TouchableOpacity onPress={() => setShowStats(true)}>
+            <MaterialCommunityIcons
+              name="spider-web"
+              size={35}
+              color={Colors.black}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity onPress={() => setShowStats(false)}>
+            <MaterialCommunityIcons
+              name="format-list-bulleted"
+              size={35}
+              color={Colors.black}
+            />
+          </TouchableOpacity>
+        )}
       </View>
-      <FlatList
-        style={{ flex: 1, padding: 20 }}
-        data={player.teams}
-        renderItem={({ item }) => <GoalList item={item} />}
-        keyExtractor={(item) => `${item.club_id}${item.season}`}
-      />
+      {!showStats ? (
+        <View style={{ flex: 1 }}>
+          <View style={styles.table}>
+            <Text style={styles.tableText}>Season</Text>
+            <Text style={styles.tableText}>Club</Text>
+            <Text style={styles.tableText}>Goals</Text>
+          </View>
+          <FlatList
+            style={{ flex: 1, padding: 20 }}
+            data={player.teams}
+            renderItem={({ item }) => <GoalList item={item} />}
+            keyExtractor={(item) => `${item.club_id}${item.season}`}
+          />
+        </View>
+      ) : (
+        <PlayerStats />
+      )}
     </SafeAreaView>
   );
 };

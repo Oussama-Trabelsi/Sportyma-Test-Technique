@@ -34,7 +34,6 @@ export function* generateSquad(action: any) {
 
 /* sends new club to store and saves it to async storage  */
 export function* createClub(action: any): any {
-  console.log();
   yield put(ClubActions.addClub(action.club));
   yield storeAsync(action.club);
 }

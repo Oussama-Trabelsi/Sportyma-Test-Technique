@@ -7,19 +7,19 @@ export default StyleSheet.create({
   title: {
     margin: 20,
     fontFamily: 'Legacy',
-    fontSize:18
+    fontSize: 18,
   },
   table: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   tableText: {
     fontFamily: 'Legacy',
-    fontSize:16
+    fontSize: 16,
   },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around'
-  }
+  chart: {
+    flex: 1,
+    width: '80%',
+    alignSelf: 'center',
+  },
 });
