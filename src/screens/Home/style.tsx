@@ -29,6 +29,9 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: -10,
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'space-between'
   },
+  row: {
+    flexDirection: 'row',
+  }
 });

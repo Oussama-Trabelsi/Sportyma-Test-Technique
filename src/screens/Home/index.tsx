@@ -10,10 +10,12 @@ import {
 import { FlatGrid } from 'react-native-super-grid';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from 'src/components/header';
 import Grid from 'src/components/card/club-grid';
 import GridLarge from 'src/components/card/club-grid-large';
 import ClubList from 'src/components/card/club-list';
+import ClubModal from 'src/components/modal';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
@@ -40,6 +42,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const [mode, setMode] = useState<Mode>(Mode.List);
   const [wasLarge, setWasLarge] = useState<boolean>(false);
   const [league] = useState<League>(League.PremierLeague);
+  const [visible, setVisible] = useState<boolean>(false);
 
   const windowWidth = Dimensions.get('window').width;
 
@@ -53,7 +56,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const itemDimension = (): number => {
     return mode === Mode.Grid ? (windowWidth - 80) / 3 : (windowWidth - 60) / 2;
   };
-  
+
   /* on mount : retrieve clubs from league */
   useEffect(() => {
     dispatch(ClubActions.getClubs({ league: league }));
@@ -66,22 +69,30 @@ const Home: React.FC<Props> = ({ navigation }) => {
       <View style={styles.bar}>
         <TouchableOpacity
           onPress={() => {
-            setMode(Mode.List);
+            setVisible(true);
           }}>
-          <FontAwesome
-            name="list-ul"
-            size={24}
-            color={mode === Mode.List ? Colors.black : Colors.grey}
-            style={{ marginRight: 10 }}
-          />
+          <Ionicons name="create" size={32} color={Colors.black} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => toggleGrid()}>
-          <MaterialCommunityIcons
-            name={!wasLarge ? 'grid-large' : 'grid'}
-            size={25}
-            color={mode !== Mode.List ? Colors.black : Colors.grey}
-          />
-        </TouchableOpacity>
+        <View style={styles.row}>
+          <TouchableOpacity
+            onPress={() => {
+              setMode(Mode.List);
+            }}>
+            <FontAwesome
+              name="list-ul"
+              size={24}
+              color={mode === Mode.List ? Colors.black : Colors.grey}
+              style={{ marginRight: 10 }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => toggleGrid()}>
+            <MaterialCommunityIcons
+              name={!wasLarge ? 'grid-large' : 'grid'}
+              size={25}
+              color={mode !== Mode.List ? Colors.black : Colors.grey}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
       {/* View control : List - Grid - Large grid */}
       <SafeAreaView style={styles.content}>
@@ -109,6 +120,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           />
         )}
       </SafeAreaView>
+      <ClubModal  visible={visible} hideModal={() => setVisible(false)}/>
     </View>
   );
 };
