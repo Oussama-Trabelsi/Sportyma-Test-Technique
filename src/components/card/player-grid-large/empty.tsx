@@ -5,6 +5,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import ClubActions from 'src/redux/club/Actions';
+// Helpers
+import { getClubById } from 'src/helpers/Common';
 // Theme
 import styles from './style';
 import { Images } from 'src/theme';
@@ -18,9 +20,10 @@ const PlayerGridEmpty: React.FC<Props> = ({ navigation }) => {
 
   const clubs = useSelector((state: any) => state.clubReducer.clubs);
 
-  const onPress = () => {
+  const onPress = async () => {
+    const club = await getClubById(clubs, 1);
     dispatch(ClubActions.generateSquad(1));
-    navigation.navigate('Club', { club: clubs[0] });
+    navigation.navigate('Club', { club: club });
   };
   return (
     <View style={styles.emptyContainer}>

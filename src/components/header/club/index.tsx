@@ -29,7 +29,9 @@ const ClubHeader: React.FC<Props> = ({ club, navigation }) => {
     <View style={styles.header}>
       <ImageBackground
         source={
-          Images[club.stadium.replace(/\s+/g, '_')]
+          club.stadiumUri
+            ? { uri: club.stadiumUri }
+            : Images[club.stadium.replace(/\s+/g, '_')]
         }
         style={styles.background}>
         <View
@@ -50,7 +52,11 @@ const ClubHeader: React.FC<Props> = ({ club, navigation }) => {
           <View style={styles.bar1}>
             <Image
               style={styles.logo}
-              source={Images[club.name.replace(/\s+/g, '_')]}
+              source={
+                club.clubUri
+                  ? { uri: club.clubUri }
+                  : Images[club.name.replace(/\s+/g, '_')]
+              }
             />
           </View>
           <View style={styles.row}>
