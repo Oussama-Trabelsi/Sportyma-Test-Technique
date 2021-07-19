@@ -1,4 +1,4 @@
-# ![alt text](https://user-images.githubusercontent.com/69165378/126237980-6704586e-7b4b-43f5-9db1-aaf4f9e96622.jpg) Sportyma 
+# ![alt text](https://user-images.githubusercontent.com/69165378/126237980-6704586e-7b4b-43f5-9db1-aaf4f9e96622.jpg=150x150) Sportyma 
 
 ## instructions 
 
