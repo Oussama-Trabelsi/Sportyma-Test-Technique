@@ -165,7 +165,7 @@ const ClubModal: React.FC<Props> = ({ visible, hideModal }) => {
           style={styles.logoContainer}
           onPress={() => launchImageLibrary(Type.CLUB)}>
           <Image
-            source={clubUri ? { uri: clubUri } : Images.selection}
+            source={clubUri ? { uri: clubUri } : Images.image}
             style={styles.logo}
           />
         </TouchableOpacity>

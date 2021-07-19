@@ -28,6 +28,7 @@ const Grid: React.FC<Props> = ({ item, navigation }) => {
         />
         <Text style={styles.boldText}>{item.name}</Text>
       </View>
+      {item?.clubUri && <Image source={Images.new} style={styles.new} />}
     </TouchableOpacity>
   );
 };

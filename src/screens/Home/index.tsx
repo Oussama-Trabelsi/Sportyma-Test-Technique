@@ -71,7 +71,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           onPress={() => {
             setVisible(true);
           }}>
-          <Ionicons name="create" size={32} color={Colors.black} />
+          <Ionicons name="add" size={32} color={Colors.black} />
         </TouchableOpacity>
         <View style={styles.row}>
           <TouchableOpacity

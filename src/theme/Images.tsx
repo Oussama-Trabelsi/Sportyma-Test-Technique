@@ -5,6 +5,8 @@ export default {
   player: require('src/assets/Images/player.png'),
   selection: require('src/assets/Images/selection.png'),
   soccer_field: require('src/assets/Images/soccer_field.png'),
+  image: require('src/assets/Images/image.png'),
+  new: require('src/assets/Images/new.png'),
   /* Club logo */
   Arsenal: require('src/assets/Images/Arsenal.png'),
   Manchester_United: require('src/assets/Images/Manchester_United.png'),

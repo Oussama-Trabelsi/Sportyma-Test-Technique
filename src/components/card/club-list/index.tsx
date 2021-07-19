@@ -44,6 +44,7 @@ const ClubList: React.FC<Props> = ({ item, navigation }) => {
           <Text style={styles.boldText}>{item.name}</Text>
         </View>
         <Text style={styles.mediumText}>{item.stadium}</Text>
+        {item?.clubUri && <Image source={Images.new} style={styles.new} />}
       </ImageBackground>
     </TouchableOpacity>
   );

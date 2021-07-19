@@ -20,4 +20,12 @@ export default StyleSheet.create({
     fontSize: 20,
     fontFamily: 'BlankenyScript',
   },
+  new: {
+    position: 'absolute',
+    right: -10,
+    top: 0,
+    width: (windowWidth - 80) / 9,
+    height: (windowWidth - 80) / 9,
+    resizeMode: 'contain',
+  },
 });

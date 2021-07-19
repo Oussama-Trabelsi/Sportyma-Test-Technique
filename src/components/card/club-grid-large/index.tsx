@@ -64,6 +64,7 @@ const GridLarge: React.FC<Props> = ({ item, navigation }) => {
           <Text style={styles.mediumText}>{item.stadium}</Text>
         </View>
       </View>
+      {item?.clubUri && <Image source={Images.new} style={styles.new} />}
     </TouchableOpacity>
   );
 };

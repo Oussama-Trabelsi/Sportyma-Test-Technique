@@ -57,4 +57,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
+  new: {
+    position: 'absolute',
+    right: -15,
+    top: 0,
+    width: (windowWidth - 80) / 7,
+    height: (windowWidth - 80) / 7,
+    resizeMode: 'contain',
+  },
 });

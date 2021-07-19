@@ -50,4 +50,12 @@ export default StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Legacy'
   },
+  new: {
+    position: 'absolute',
+    right: 10,
+    top: 10,
+    width: (windowWidth - 80) / 7,
+    height: (windowWidth - 80) / 7,
+    resizeMode: 'contain',
+  },
 });
